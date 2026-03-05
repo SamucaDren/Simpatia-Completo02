@@ -1,12 +1,15 @@
 export async function ChatMensagem(pergunta, specialties) {
   try {
-    const response = await fetch("https://backend-simpatia.onrender.com/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://backend-simpatia.onrender.com/ajuda-ai-chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ pergunta, specialties }),
       },
-      body: JSON.stringify({ pergunta, specialties }),
-    });
+    );
 
     if (!response.ok) {
       throw new Error("Erro na requisição");
