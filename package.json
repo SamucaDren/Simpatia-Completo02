@@ -5,7 +5,8 @@
   "main": "config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "meu-script.bat"
+    "build-ajuda-ai": "node builds/ajuda-ai.js",
+    "build-site-principal": "node builds/site-principal.js"
   },
   "keywords": [],
   "author": "",
