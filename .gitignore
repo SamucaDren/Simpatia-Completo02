@@ -1,12 +1,9 @@
 # Dependências
 node_modules/
 
-# Build
-dist/
-build/
 
 
-config.js
+
 
 
 # Arquivos de ambiente
