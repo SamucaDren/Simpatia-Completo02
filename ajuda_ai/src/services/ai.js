@@ -1,4 +1,4 @@
-export async function ChatMensagem(pergunta: any, specialties: string) {
+export async function ChatMensagem(pergunta, specialties) {
   try {
     const response = await fetch("https://backend-simpatia.onrender.com/chat", {
       method: "POST",

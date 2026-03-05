@@ -19,7 +19,7 @@ import {
   Leaf,
 } from "phosphor-react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { ChatMensagem } from "../services/ai.ts";
+import { ChatMensagem } from "../services/ai.js";
 
 const ManContext = createContext();
 
