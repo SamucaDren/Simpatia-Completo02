@@ -32,6 +32,6 @@ Thumbs.db
 # Arquivos temporários
 *.log
 *.tmp
-
+.env
 # Map files (evita expor código e possíveis secrets)
 *.map
