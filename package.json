@@ -1,0 +1,13 @@
+{
+  "name": "simpatia-completo02",
+  "version": "1.0.0",
+  "description": "🌟 Simpatia",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "meu-script.bat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
