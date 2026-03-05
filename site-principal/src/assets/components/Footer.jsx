@@ -13,7 +13,7 @@ function Footer() {
         {/* Divisão Esquerda */}
         <div className="footer-left">
           <img
-            src="/logosimpatia.svg"
+            src="./logosimpatia.svg"
             alt="Logo Simpatia"
             className="footer-logo-simpatia"
           />

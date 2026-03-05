@@ -133,7 +133,7 @@ function Ferramentas({ todosModulos }) {
                 >
                   {numero}
                 </button>
-              )
+              ),
             )}
             <button
               onClick={() =>

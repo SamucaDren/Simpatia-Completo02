@@ -27,7 +27,7 @@ function EclipseGiratoria() {
       </svg>
 
       <div className="logo-container">
-        <img src="/unifenaslogo.svg" alt="Unifenas Logo" />
+        <img src="./unifenaslogo.svg" alt="Unifenas Logo" />
       </div>
     </div>
   );
