@@ -19,7 +19,7 @@ import {
   Leaf,
 } from "phosphor-react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { ChatMensagem } from "../services/ia";
+import { ChatMensagem } from "../services/ai.ts";
 
 const ManContext = createContext();
 
@@ -140,7 +140,8 @@ export const ManProvider = ({ children }) => {
       id: "infrastructure",
       name: "Infraestrutura",
       icon: HardDrives,
-      description: "Especialista em redes, servidores, cloud e segurança da informação",
+      description:
+        "Especialista em redes, servidores, cloud e segurança da informação",
       presentation:
         "Olá, eu sou o Assistente de Infraestrutura, Especialista em redes, servidores, cloud computing e segurança da informação. Como posso te ajudar hoje?",
       color: "#4B5563",
@@ -155,14 +156,20 @@ export const ManProvider = ({ children }) => {
       presentation:
         "Olá, eu sou o Assistente de Robótica, focado em automação, eletrônica e controle. Pronto para te auxiliar!",
       color: "#0EA5E9",
-      specialties: ["Eletrônica", "Automação Industrial", "Arduino", "Robótica"],
+      specialties: [
+        "Eletrônica",
+        "Automação Industrial",
+        "Arduino",
+        "Robótica",
+      ],
       messages: [],
     },
     {
       id: "datascience",
       name: "Data Science",
       icon: ChartBar,
-      description: "Especialista em estatística, análise de dados e machine learning",
+      description:
+        "Especialista em estatística, análise de dados e machine learning",
       presentation:
         "Olá, eu sou o Assistente de Data Science, especialista em análise de dados, estatística e machine learning. Como posso te ajudar?",
       color: "#9333EA",
@@ -173,11 +180,17 @@ export const ManProvider = ({ children }) => {
       id: "neuroscience",
       name: "Neurociência",
       icon: Brain,
-      description: "Especialista em funcionamento do cérebro e processos de aprendizagem",
+      description:
+        "Especialista em funcionamento do cérebro e processos de aprendizagem",
       presentation:
         "Olá, eu sou o Assistente de Neurociência, focado em aprendizagem, memória e funcionamento cognitivo. Vamos aprender juntos?",
       color: "#14B8A6",
-      specialties: ["Neuroaprendizagem", "Psicologia Cognitiva", "Memória", "Estudo Eficaz"],
+      specialties: [
+        "Neuroaprendizagem",
+        "Psicologia Cognitiva",
+        "Memória",
+        "Estudo Eficaz",
+      ],
       messages: [],
     },
     {
@@ -221,7 +234,12 @@ export const ManProvider = ({ children }) => {
       presentation:
         "Olá, eu sou o Assistente Jurídico Especializado, pronto para auxiliar com conhecimentos em Direito Civil, Trabalhista e Compliance.",
       color: "#7C3AED",
-      specialties: ["Direito Civil", "Direito Trabalhista", "Contratos", "Compliance"],
+      specialties: [
+        "Direito Civil",
+        "Direito Trabalhista",
+        "Contratos",
+        "Compliance",
+      ],
       messages: [],
     },
     {
@@ -232,7 +250,12 @@ export const ManProvider = ({ children }) => {
       presentation:
         "Olá, eu sou o Assistente de Engenharia de Software, focado em arquitetura, padrões e boas práticas. Como posso ajudar?",
       color: "#1D4ED8",
-      specialties: ["Arquitetura", "Padrões de Projeto", "Clean Code", "Documentação"],
+      specialties: [
+        "Arquitetura",
+        "Padrões de Projeto",
+        "Clean Code",
+        "Documentação",
+      ],
       messages: [],
     },
     {
@@ -276,11 +299,13 @@ export const ManProvider = ({ children }) => {
     setTimeout(() => {
       setAgents((prev) =>
         prev.map((a) =>
-          a.id === selectedAgent.id ? { ...a, messages: [welcome] } : a
-        )
+          a.id === selectedAgent.id ? { ...a, messages: [welcome] } : a,
+        ),
       );
 
-      setSelectedAgent((prev) => (prev ? { ...prev, messages: [welcome] } : prev));
+      setSelectedAgent((prev) =>
+        prev ? { ...prev, messages: [welcome] } : prev,
+      );
 
       const savedMessages = getStorage("agentsMessages");
       if (savedMessages) {
@@ -305,7 +330,9 @@ export const ManProvider = ({ children }) => {
         timestamp: new Date(),
       };
       setAgents((prev) =>
-        prev.map((a) => (a.id === agent.id ? { ...a, messages: [welcome] } : a))
+        prev.map((a) =>
+          a.id === agent.id ? { ...a, messages: [welcome] } : a,
+        ),
       );
       setSelectedAgent({ ...agent, messages: [welcome] });
     } else {
@@ -329,17 +356,17 @@ export const ManProvider = ({ children }) => {
 
     setAgents((prev) => {
       const updated = prev.map((a) =>
-        a.id === agentId ? { ...a, messages: [...a.messages, userMessage] } : a
+        a.id === agentId ? { ...a, messages: [...a.messages, userMessage] } : a,
       );
       setStorage(
         "agentsMessages",
-        updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {})
+        updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {}),
       );
       return updated;
     });
 
     setSelectedAgent((prev) =>
-      prev ? { ...prev, messages: [...prev.messages, userMessage] } : prev
+      prev ? { ...prev, messages: [...prev.messages, userMessage] } : prev,
     );
 
     setInputValue("");
@@ -348,7 +375,7 @@ export const ManProvider = ({ children }) => {
     try {
       const apiResponse = await ChatMensagem(
         [...selectedAgent.messages, userMessage],
-        selectedAgent.specialties
+        selectedAgent.specialties,
       );
 
       let botText = "";
@@ -368,17 +395,17 @@ export const ManProvider = ({ children }) => {
         const updated = prev.map((a) =>
           a.id === agentId
             ? { ...a, messages: [...a.messages, botResponse] }
-            : a
+            : a,
         );
         setStorage(
           "agentsMessages",
-          updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {})
+          updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {}),
         );
         return updated;
       });
 
       setSelectedAgent((prev) =>
-        prev ? { ...prev, messages: [...prev.messages, botResponse] } : prev
+        prev ? { ...prev, messages: [...prev.messages, botResponse] } : prev,
       );
     } catch (error) {
       console.error("Erro ao enviar/receber mensagem da IA:", error);
@@ -394,11 +421,11 @@ export const ManProvider = ({ children }) => {
         const updated = prev.map((a) =>
           a.id === agentId
             ? { ...a, messages: [...a.messages, errorBotResponse] }
-            : a
+            : a,
         );
         setStorage(
           "agentsMessages",
-          updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {})
+          updated.reduce((acc, a) => ({ ...acc, [a.id]: a.messages }), {}),
         );
         return updated;
       });
@@ -406,7 +433,7 @@ export const ManProvider = ({ children }) => {
       setSelectedAgent((prev) =>
         prev
           ? { ...prev, messages: [...prev.messages, errorBotResponse] }
-          : prev
+          : prev,
       );
     } finally {
       setIsLoading(false);
@@ -445,7 +472,7 @@ export const ManProvider = ({ children }) => {
               ...msg,
               timestamp: msg.timestamp ? new Date(msg.timestamp) : new Date(),
             })),
-          }))
+          })),
         );
       } catch (e) {
         console.error("Erro ao parsear mensagens do localStorage:", e);
