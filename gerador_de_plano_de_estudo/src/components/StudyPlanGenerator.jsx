@@ -8,7 +8,7 @@ import {
   TrendingUp,
   AlertCircle,
 } from "lucide-react";
-import { OPENAI_API_KEY } from "../../config";
+//import { OPENAI_API_KEY } from "../../config";
 
 export default function StudyPlanGenerator() {
   const [discipline, setDiscipline] = useState("");
@@ -218,7 +218,7 @@ Responda APENAS com um JSON válido, sem texto adicional antes ou depois, SEM ma
 IMPORTANTE: Para ${daysAvailable} dias, crie EXATAMENTE ${maxModules} módulos. Responda SOMENTE com JSON, sem explicações.`;
 
     try {
-      const apiKey = OPENAI_API_KEY;
+      const apiKey = "aqui_vai_a_sua_chave_de_api"; // substitua pela sua chave de API
 
       if (!apiKey) {
         throw new Error("VITE_OPENAI_API_KEY não configurada no arquivo .env");

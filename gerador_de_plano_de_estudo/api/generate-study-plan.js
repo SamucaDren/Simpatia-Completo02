@@ -1,9 +1,9 @@
 // api/generate-study-plan.js
 import OpenAI from "openai";
-import { OPENAI_API_KEY } from "../config.js";
+//import { OPENAI_API_KEY } from "../config.js";
 
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+  apiKey: "aqui_vai_a_sua_chave_de_api", // substitua pela sua chave de API
 });
 
 export default async function handler(req, res) {

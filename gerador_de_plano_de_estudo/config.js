@@ -1,1 +1,0 @@
-C:/Users/Samuca/Desktop/Simpatia/Simpatia Completo/config.js
