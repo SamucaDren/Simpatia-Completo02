@@ -28,7 +28,6 @@ export default function StudyPlanGenerator() {
   const [studyPlan, setStudyPlan] = useState(null);
   const [error, setError] = useState("");
   const [hasDeadline, setHasDeadline] = useState(true);
-
   const generateStudyPlanWithAI = async () => {
     const daysAvailable = calculateDaysAvailable(hasDeadline, deadline);
     const totalHoursAvailable = daysAvailable * parseInt(dailyHours);
@@ -60,21 +59,14 @@ export default function StudyPlanGenerator() {
       durationType = `${weeks} semanas`;
     }
 
-    const prompt = `Como especialista em educação, crie um plano de estudo REALISTA e ADAPTADO em JSON.
-
-CONTEXTO:
-- Disciplina: ${discipline}
-- Nível: ${knowledgeLevel}
-- Horas/dia: ${dailyHours}h
-- Dias disponíveis: ${daysAvailable} dias
-- Total de horas: ${totalHoursAvailable}h
-- Objetivo: ${studyGoal}
-- Tipo: ${hasDeadline ? "COM prazo" : "SEM prazo específico"}
-
-REGRAS:
-- Para ${daysAvailable} dias crie EXATAMENTE ${maxModules} módulos.
-
-Responda APENAS com JSON válido sem markdown.`;
+    const successProbability =
+      daysAvailable <= 3
+        ? "baixa"
+        : daysAvailable <= 7
+          ? "média"
+          : daysAvailable <= 14
+            ? "alta"
+            : "muito alta";
 
     try {
       const response = await fetch(
@@ -85,23 +77,35 @@ Responda APENAS com JSON válido sem markdown.`;
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            prompt,
+            discipline,
+            knowledgeLevel,
+            studyGoal,
+            dailyHours: parseInt(dailyHours),
+            hasDeadline,
+            daysAvailable,
+            totalHoursAvailable,
+            weeks,
+            maxModules,
+            intensity,
+            durationType,
+            successProbability,
           }),
         },
       );
 
       if (!response.ok) {
-        throw new Error("Erro ao consultar o servidor");
+        throw new Error("Erro ao consultar servidor");
       }
 
       const data = await response.json();
 
       return data;
     } catch (error) {
-      console.error(error);
-      throw new Error("Erro ao gerar plano de estudo");
+      console.error("Erro ao gerar plano:", error);
+      throw new Error("Falha ao gerar plano de estudo");
     }
   };
+
   const generateStudyPlan = async () => {
     if (
       !discipline.trim() ||
