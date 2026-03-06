@@ -71,168 +71,37 @@ CONTEXTO:
 - Objetivo: ${studyGoal}
 - Tipo: ${hasDeadline ? "COM prazo" : "SEM prazo específico"}
 
-ANÁLISE DE TEMPO REALISTA:
-${
-  daysAvailable <= 1
-    ? `
-🚨 SITUAÇÃO DE EMERGÊNCIA: Apenas 1 dia disponível!
-- MÁXIMO: 1 módulo ULTRA concentrado
-- Foco APENAS nos 3-5 tópicos MAIS ESSENCIAIS
-- 90% prática, 10% teoria
-- Metas de SOBREVIVÊNCIA, não domínio
-- Cronograma por HORAS, não dias
-`
-    : daysAvailable <= 3
-      ? `
-⚠️ SITUAÇÃO CRÍTICA: Apenas ${daysAvailable} dias disponíveis!
-- MÁXIMO: 2 módulos intensivos
-- Foco em revisão RÁPIDA e exercícios-chave
-- 80% prática, 20% teoria
-- Metas realistas de revisão
-- Cronograma DIÁRIO detalhado
-`
-      : daysAvailable <= 7
-        ? `
-🟡 SITUAÇÃO APERTADA: ${daysAvailable} dias (1 semana)
-- MÁXIMO: 3 módulos focados
-- Equilíbrio 60% prática / 40% teoria
-- Metas semanais alcançáveis
-- Cronograma SEMANAL adaptado
-`
-        : daysAvailable <= 14
-          ? `
-🟢 SITUAÇÃO CONFORTAVEL: ${daysAvailable} dias (2 semanas)
-- 3-4 módulos completos
-- Aprofundamento moderado (50/50)
-- Metas de compreensão sólida
-- Cronograma SEMANAL completo
-`
-          : `
-💚 SITUAÇÃO IDEAL: ${daysAvailable} dias (${weeks}+ semanas)
-- 4-5 módulos detalhados
-- Aprendizado profundo (40% prática / 60% teoria)
-- Projetos extensos
-- Metas de domínio completo
-`
-}
+REGRAS:
+- Para ${daysAvailable} dias crie EXATAMENTE ${maxModules} módulos.
 
-REGRAS ESTRITAS:
-- Dias ≤ 1: MÁXIMO 1 módulo ULTRA concentrado
-- Dias 2-3: MÁXIMO 2 módulos intensivos  
-- Dias 4-7: MÁXIMO 3 módulos focados
-- Dias 8-14: 3-4 módulos completos
-- Dias ≥15: 4-5 módulos detalhados
-
-CRIE ATIVIDADES ESPECÍFICAS para ${discipline} considerando o tempo REAL.
-
-Responda APENAS com um JSON válido, sem texto adicional antes ou depois, SEM markdown. Use esta estrutura exata:
-
-{
-  "discipline": "${discipline}",
-  "totalDuration": "${durationType}",
-  "studyIntensity": "${intensity}",
-  "timeAssessment": "Análise HONESTA sobre viabilidade baseada no tempo disponível",
-  "totalHours": ${totalHoursAvailable},
-  "availableDays": ${daysAvailable},
-  "maxPossibleModules": ${maxModules},
-  "successProbability": "${daysAvailable <= 3 ? "baixa" : daysAvailable <= 7 ? "média" : daysAvailable <= 14 ? "alta" : "muito alta"}",
-  "modules": [
-    {
-      "title": "Título do módulo específico para ${discipline}",
-      "duration": "duração apropriada",
-      "priority": "CRÍTICO ou ALTO ou MÉDIO",
-      "focus": "foco do estudo",
-      "topics": ["tópico 1", "tópico 2", "tópico 3"],
-      "practicalApplications": ["aplicação 1", "aplicação 2"],
-      "dailySchedule": {
-        "periodo1": "atividade com horas",
-        "periodo2": "atividade com horas"
-      }
-    }
-  ],
-  "goals": ["meta 1", "meta 2", "meta 3"],
-  "recommendations": ["recomendação 1", "recomendação 2", "recomendação 3"]
-}
-
-IMPORTANTE: Para ${daysAvailable} dias, crie EXATAMENTE ${maxModules} módulos. Responda SOMENTE com JSON, sem explicações.`;
+Responda APENAS com JSON válido sem markdown.`;
 
     try {
-      const apiKey = "aqui_vai_a_sua_chave_de_api"; // substitua pela sua chave de API
-
-      if (!apiKey) {
-        throw new Error("VITE_OPENAI_API_KEY não configurada no arquivo .env");
-      }
-
       const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
+        "https://backend-simpatia.onrender.com/plano-de-estudo",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
           },
           body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [
-              {
-                role: "system",
-                content:
-                  "Você é um especialista em educação que cria planos de estudo detalhados e realistas. Sempre responda APENAS com JSON válido, sem markdown ou texto adicional.",
-              },
-              {
-                role: "user",
-                content: prompt,
-              },
-            ],
-            temperature: 0.7,
-            max_tokens: 4000,
+            prompt,
           }),
         },
       );
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          `Erro OpenAI (${response.status}): ${errorData.error?.message || "Erro desconhecido"}`,
-        );
+        throw new Error("Erro ao consultar o servidor");
       }
 
       const data = await response.json();
-      const content = data.choices[0].message.content;
 
-      // Remove markdown code blocks se existirem
-      const cleanedContent = content
-        .replace(/```json\n?/g, "")
-        .replace(/```\n?/g, "")
-        .trim();
-
-      // Parse do JSON
-      const parsedData = JSON.parse(cleanedContent);
-
-      return parsedData;
+      return data;
     } catch (error) {
-      console.error("Erro detalhado:", error);
-
-      // Mensagens de erro mais específicas
-      if (error.message.includes("VITE_OPENAI_API_KEY")) {
-        throw new Error("Configure a chave da OpenAI no arquivo .env");
-      }
-      if (error.message.includes("401")) {
-        throw new Error("Chave de API inválida. Verifique VITE_OPENAI_API_KEY");
-      }
-      if (error.message.includes("429")) {
-        throw new Error(
-          "Limite de requisições atingido. Aguarde alguns minutos",
-        );
-      }
-      if (error.message.includes("JSON")) {
-        throw new Error("Erro ao processar resposta da IA. Tente novamente");
-      }
-
-      throw new Error(`Falha na geração: ${error.message}`);
+      console.error(error);
+      throw new Error("Erro ao gerar plano de estudo");
     }
   };
-
   const generateStudyPlan = async () => {
     if (
       !discipline.trim() ||
