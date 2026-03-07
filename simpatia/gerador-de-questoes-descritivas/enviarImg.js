@@ -64,7 +64,7 @@ async function enviarImgParaAnalise(file) {
 
     if (!response.ok) {
       console.error(
-        "Respeosta do servidor NÃO OK:",
+        "Resposta do servidor NÃO OK:",
         response.status,
         response.statusText,
       ); // ERRO E
