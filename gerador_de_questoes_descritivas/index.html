@@ -50,35 +50,54 @@
 -->
     <div class="corsk">
       <nav class="no-bootstrap">
-        <a
-          class="close custom-btn"
-          href="/gerador-de-questoes-descritivas/correcao"
+        <form
+          action="/gerador-de-questoes-descritivas/correcao"
+          rel="noopener noreferrer"
         >
-          Correção de Questões Descritivas
-        </a>
-
-        <a
-          class="close custom-btn"
-          href="https://chat.openai.com/"
+          <button
+            class="close custom-btn"
+            onclick="document.getElementById('submit-btn').click()"
+          >
+            Correção de Questões Descritivas
+          </button>
+        </form>
+        <form
+          action="https://chat.openai.com/"
+          method="get"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Acessar Chat GPT
-        </a>
+          <button
+            class="close custom-btn"
+            onclick="document.getElementById('submit-btn').click()"
+          >
+            Acessar Chat GPT
+          </button>
+        </form>
 
-        <a
-          class="close custom-btn"
-          href="/gerador-de-questoes-descritivas/como-usar"
+        <form
+          action="/gerador-de-questoes-descritivas/como-usar"
+          rel="noopener noreferrer"
         >
-          Como usar o Chat GPT
-        </a>
+          <button
+            class="close custom-btn"
+            onclick="document.getElementById('submit-btn').click()"
+          >
+            Como usar o Chat GPT
+          </button>
+        </form>
 
-        <a
-          class="close custom-btn"
-          href="/gerador-de-questoes-descritivas/creditos"
+        <form
+          action="/gerador-de-questoes-descritivas/creditos"
+          rel="noopener noreferrer"
         >
-          Créditos
-        </a>
+          <button
+            class="close custom-btn"
+            onclick="document.getElementById('submit-btn').click()"
+          >
+            Créditos
+          </button>
+        </form>
       </nav>
     </div>
 
