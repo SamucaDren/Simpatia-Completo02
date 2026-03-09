@@ -163,7 +163,7 @@ export const Hero = () => {
             }}
           >
             <img
-              src="/hero-background-shape.svg"
+              // src="/hero-background-shape.svg"
               alt=""
               style={{ width: "100%", height: "auto" }}
             />
