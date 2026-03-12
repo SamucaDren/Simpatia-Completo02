@@ -9,7 +9,7 @@ const MODULOS_DATA = {
     {
       titulo: "Gerador de Questões Descritivas",
       descricao: "Crie e corrija questões descritivas",
-      link: "/gerador-de-questoes-descritivas",
+      link: "/gerador-questoes-descritivas",
       id: "p2",
     },
     {
@@ -21,6 +21,7 @@ const MODULOS_DATA = {
     {
       titulo: "Gerador de Plano de Aula ",
       descricao: "Gere seus planos de aula.",
+      link: "/gerador-plano-aula",
       id: "p4",
     },
   ],
@@ -40,7 +41,7 @@ const MODULOS_DATA = {
     {
       titulo: "Gerador de plano de estudos",
       descricao: "Gere um plano para estudar",
-      link: "/gerador-de-plano",
+      link: "/gerador-plano-estudo",
       id: "a3",
     },
     {

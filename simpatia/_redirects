@@ -1,10 +1,12 @@
-/gerador-de-plano/*   /gerador-de-plano/index.html   200
+/gerador-plano-estudo/*   /gerador-de-plano/index.html   200
 /simpatico/*   /simpatico/:splat   200
-/gerador-de-questoes-descritivas/*  /gerador-de-questoes-descritivas/index.html 200 
-/gerador-de-questoes-descritivas/correcao/* /gerador-de-questoes-descritivas/correcao.html 200
-/gerador-de-questoes-descritivas/como-usar/* /gerador-de-questoes-descritivas/comoUsar.html 200
-/gerador-de-questoes-descritivas/creditos/* /gerador-de-questoes-descritivas/creditos.html 200
 /ajuda-ai/*           /ajuda-ai/index.html           200
 /oratoria-ai/*        /oratoria-ai/index.html        200
+
+/gerador-plano-aula/* /gerador-de-plano-de-aula/index.html 200
+/gerador-questoes-descritivas/*  /gerador-de-questoes-descritivas/correcao.html 200
+/gerador-questoes-descritivas/como-usar/* /gerador-de-questoes-descritivas/comoUsar.html 200
+/gerador-questoes-descritivas/creditos/* /gerador-de-questoes-descritivas/creditos.html 200
 /acessibilidade-checker/* /acessibilidade-checker/index/html  200
+
 /*                    /site-principal/index.html     200
