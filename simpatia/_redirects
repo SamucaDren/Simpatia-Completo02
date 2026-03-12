@@ -3,7 +3,9 @@
 /ajuda-ai/*           /ajuda-ai/index.html           200
 /oratoria-ai/*        /oratoria-ai/index.html        200
 
+/gerador-plano-aula/index.css /gerador-de-plano-de-aula/index.css 200
 /gerador-plano-aula/* /gerador-de-plano-de-aula/index.html 200
+
 /gerador-questoes-descritivas/*  /gerador-de-questoes-descritivas/correcao.html 200
 /gerador-questoes-descritivas/como-usar/* /gerador-de-questoes-descritivas/comoUsar.html 200
 /gerador-questoes-descritivas/creditos/* /gerador-de-questoes-descritivas/creditos.html 200
