@@ -4,6 +4,7 @@ import CardModulos from "../components/CardModulo";
 import Unifenas from "../components/Unifenas";
 import HeroAlt from "../components/HeroAlt";
 import "./Modules.css";
+import { Link } from "react-router-dom";
 
 function Ferramentas({ todosModulos }) {
   const { tipo } = useParams();

@@ -4,6 +4,7 @@ import FEATURES from "../../data/atualizacoesData";
 import "./Features.css";
 import Scrollspy from "../components/Scrollpsy";
 import Unifenas from "../components/Unifenas";
+import { Link } from "react-router-dom";
 
 function Feature() {
   const { id } = useParams();
@@ -38,7 +39,7 @@ function Feature() {
           chave,
           { descricao: valor?.descricao ?? "", fotos: valor?.fotos ?? [] },
         ];
-      })
+      }),
   );
 
   return (

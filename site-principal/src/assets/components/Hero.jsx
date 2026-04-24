@@ -4,6 +4,7 @@ import "./Hero.css";
 import ButtonUnifenas from "./ButtonUnifenas";
 import CarroselFotos from "./CarroselFotos";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const palavras = ["aprender", "ensinar"];

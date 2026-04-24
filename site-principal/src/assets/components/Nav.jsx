@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ButtonUnifenas from "../components/ButtonUnifenas";
 import "./Nav.css";
 import NavModulos from "./NavModulos";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   // ESTADOS
@@ -55,7 +56,11 @@ function NavBar() {
       {/* Cabeçalho da navbar: logo + menu hambúrguer */}
       <div className="navbar-header">
         <a href="/">
-          <img src="/logosimpatia.svg" alt="Logo" className="logo" />
+          <img
+            src="/site-principal/logosimpatia.svg"
+            alt="Logo"
+            className="logo"
+          />
         </a>
 
         <div className="hamburger-menu" onClick={handleMenuClick}>
@@ -101,7 +106,7 @@ function NavBar() {
           </div>
 
           <hr />
-          <a href="/about">Sobre o Projeto</a>
+          <Link to="/about">Sobre o Projeto</Link>
           <hr />
         </div>
       </div>

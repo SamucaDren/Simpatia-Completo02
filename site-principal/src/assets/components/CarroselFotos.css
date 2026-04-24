@@ -32,12 +32,12 @@
 }
 
 .foto1 {
-  background-image: url("/homem.png");
+  background-image: url("/Homem.png");
   opacity: 0;
 }
 
 .foto2 {
-  background-image: url("/mulher.png");
+  background-image: url("/Mulher.png");
   opacity: 0;
 }
 .foto1.visible,

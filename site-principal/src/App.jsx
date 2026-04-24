@@ -4,13 +4,14 @@ import Footer from "./assets/components/Footer.jsx";
 import Ferramentas from "./assets/pages/Modules.jsx";
 import Index from "./assets/pages/Index.jsx";
 import Features from "./assets/pages/Features.jsx";
+import ChatBot from "./assets/components/ChatBot.jsx";
 
 import MODULOS_DATA from "./data/modulosData";
 import UpdatesPage from "./assets/pages/About.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/site-principal">
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />} />
@@ -22,6 +23,7 @@ function App() {
         <Route path="/features/:id" element={<Features />} />
         <Route path="*" element={<h1>404: Página Não Encontrada</h1>} />
       </Routes>
+      <ChatBot />
       <Footer />
     </BrowserRouter>
   );

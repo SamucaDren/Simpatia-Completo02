@@ -1,8 +1,9 @@
 import "./ButtonUnifenas.css";
+import { Link } from "react-router-dom";
 
 function ButtonUnifenas() {
   return (
-    <a className="button-unifenas" href="https://unifenas.br/" target="_blank">
+    <Link className="button-unifenas" to="https://unifenas.br/" target="_blank">
       <svg
         class="logo-unifenas"
         width="30"
@@ -37,7 +38,7 @@ function ButtonUnifenas() {
         />
       </svg>
       Conheça a Unifenas
-    </a>
+    </Link>
   );
 }
 

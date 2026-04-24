@@ -1,4 +1,5 @@
 import "./CardModulo.css";
+import { Link } from "react-router-dom";
 
 function CardModulo({ nome, descricao, link }) {
   return (
@@ -27,7 +28,7 @@ function CardModulo({ nome, descricao, link }) {
       </div>
 
       <p>{descricao}</p>
-      <a href={link}>
+      <Link to={link}>
         Acessar{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +42,7 @@ function CardModulo({ nome, descricao, link }) {
             fill="#370199"
           />
         </svg>
-      </a>
+      </Link>
     </div>
   );
 }
