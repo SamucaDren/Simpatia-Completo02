@@ -11,7 +11,7 @@ import UpdatesPage from "./assets/pages/About.jsx";
 
 function App() {
   return (
-    <BrowserRouter basename="/site-principal">
+    <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />} />

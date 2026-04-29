@@ -50,7 +50,7 @@ function ChatBot() {
     <div className="chatbot">
       {!open && (
         <button className="chatbot-button" onClick={() => setOpen(true)}>
-          <img src="/site-principal/chat.png"></img>
+          <img src="/chat.png"></img>
         </button>
       )}
 
