@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CardModulo from "./CardModulo";
 import ButtonConhecerModulos from "./ButtonConhecerModulos";
-import "./Descubra.css";
+import styles from "./descubra.module.css";
 import MODULOS_DATA from "../../data/modulosData";
 
 function Descubra() {
@@ -25,7 +25,6 @@ function Descubra() {
     categoriaSelecionada === "Aluno" ? modulosAlunos : modulosProfessores;
 
   useEffect(() => {
-    // Função para embaralhar
     const shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -43,30 +42,37 @@ function Descubra() {
   const handleProximoCard = () => {
     setCardAtualIndex((prevIndex) => (prevIndex + 1) % modulosExibidos.length);
   };
-
+  /*
   const handleCardAnterior = () => {
     setCardAtualIndex(
       (prevIndex) =>
         (prevIndex - 1 + modulosExibidos.length) % modulosExibidos.length
     );
-  };
+  };*/
 
   const modulosExibidos = cardsAleatorios;
 
   return (
-    <div className="container-pagina">
-      <div className="conteudo-textual">
-        <h2>DESCUBRA</h2>
-        <h3>Conheça todos os módulos</h3>
+    <div className={styles.container_pagina}>
+      <div className={styles.conteudo_textual}>
+        <span className="tag">DESCUBRA</span>
+        <h2>Conheça todos os módulos</h2>
         <p>
           Explore as ferramentas criadas para facilitar o dia a dia de
           professores e tornar o aprendizado dos alunos mais envolvente.
         </p>
       </div>
-      <div className="mudavel-lateral">
-        <div className="botoes-flex">
+      <div className={styles.mudavel_lateral}>
+        <div className={styles.botoes_flex}>
+          <div
+            className={`${styles.barraSelectModules} ${
+              categoriaSelecionada === "Professor"
+                ? styles.professor
+                : styles.aluno
+            }`}
+          />
           <button
-            className={categoriaSelecionada === "Professor" ? "ativo" : ""}
+            className={categoriaSelecionada === "Professor" ? styles.ativo : ""}
             onClick={() => setCategoriaSelecionada("Professor")}
           >
             <svg
@@ -74,16 +80,16 @@ function Descubra() {
               width="21"
               height="25"
               viewBox="0 0 21 25"
-              fill="none"
             >
-                           {" "}
-              <path d="M19.8644 0.194702H3.94496C2.95153 0.194702 1.99878 0.589341 1.29632 1.2918C0.593858 1.99427 0.199219 2.94701 0.199219 3.94044V23.6056C0.199219 23.8539 0.297879 24.0921 0.473494 24.2677C0.64911 24.4434 0.887296 24.542 1.13565 24.542H17.9915C18.2398 24.542 18.478 24.4434 18.6536 24.2677C18.8293 24.0921 18.9279 23.8539 18.9279 23.6056C18.9279 23.3572 18.8293 23.119 18.6536 22.9434C18.478 22.7678 18.2398 22.6691 17.9915 22.6691H2.07209C2.07209 22.1724 2.26941 21.6961 2.62064 21.3448C2.97187 20.9936 3.44824 20.7963 3.94496 20.7963H19.8644C20.1127 20.7963 20.3509 20.6976 20.5265 20.522C20.7021 20.3464 20.8008 20.1082 20.8008 19.8598V1.13114C20.8008 0.882779 20.7021 0.644593 20.5265 0.468978C20.3509 0.293362 20.1127 0.194702 19.8644 0.194702ZM18.9279 18.9234H3.94496C3.28728 18.9225 2.6411 19.0958 2.07209 19.4256V3.94044C2.07209 3.44373 2.26941 2.96735 2.62064 2.61612C2.97187 2.26489 3.44824 2.06757 3.94496 2.06757H18.9279V18.9234Z" />
-                         {" "}
+              {" "}
+              <path d="M19.8644 0.194702H3.94496C2.95153 0.194702 1.99878 0.589341 1.29632 1.2918C0.593858 1.99427 0.199219 2.94701 0.199219 3.94044V23.6056C0.199219 23.8539 0.297879 24.0921 0.473494 24.2677C0.64911 24.4434 0.887296 24.542 1.13565 24.542H17.9915C18.2398 24.542 18.478 24.4434 18.6536 24.2677C18.8293 24.0921 18.9279 23.8539 18.9279 23.6056C18.9279 23.3572 18.8293 23.119 18.6536 22.9434C18.478 22.7678 18.2398 22.6691 17.9915 22.6691H2.07209C2.07209 22.1724 2.26941 21.6961 2.62064 21.3448C2.97187 20.9936 3.44824 20.7963 3.94496 20.7963H19.8644C20.1127 20.7963 20.3509 20.6976 20.5265 20.522C20.7021 20.3464 20.8008 20.1082 20.8008 19.8598V1.13114C20.8008 0.882779 20.7021 0.644593 20.5265 0.468978C20.3509 0.293362 20.1127 0.194702 19.8644 0.194702ZM18.9279 18.9234H3.94496C3.28728 18.9225 2.6411 19.0958 2.07209 19.4256V3.94044C2.07209 3.44373 2.26941 2.96735 2.62064 2.61612C2.97187 2.26489 3.44824 2.06757 3.94496 2.06757H18.9279V18.9234Z" />{" "}
             </svg>
             Professores
           </button>
           <button
-            className={categoriaSelecionada === "Aluno" ? "ativo" : ""}
+            className={
+              categoriaSelecionada === "Aluno" ? styles.ativo : styles.inativo
+            }
             onClick={() => setCategoriaSelecionada("Aluno")}
           >
             <svg
@@ -98,8 +104,8 @@ function Descubra() {
             Alunos
           </button>
         </div>
-        <div className="container-card">
-          <div className="container-card-desktop">
+        <div className={styles.container_card}>
+          <div className={styles.container_card_desktop}>
             {cardsAleatorios.map((modulo, index) => (
               <CardModulo
                 key={index}
@@ -109,7 +115,7 @@ function Descubra() {
               />
             ))}
           </div>
-          <div className="container-card-mobile">
+          <div className={styles.container_card_mobile}>
             <CardModulo
               key={cardAtualIndex}
               nome={listaModulosCompleta[cardAtualIndex].titulo}
@@ -117,9 +123,9 @@ function Descubra() {
             />
           </div>
         </div>
-        <div className={`botao-passar`}>
+        <div className={styles.botao_passar}>
           <button
-            className={`botao-passar ${isButtonClick ? "ativo" : ""}`}
+            className={isButtonClick ? styles.ativo : styles.inativo}
             onClick={() => {
               handleProximoCard();
               handleButtonClick("esquerda");
@@ -136,7 +142,7 @@ function Descubra() {
             </svg>
           </button>
           <button
-            className={`botao-passar ${!isButtonClick ? "ativo" : ""}`}
+            className={!isButtonClick ? styles.ativo : styles.inativo}
             onClick={() => {
               handleProximoCard();
               handleButtonClick("direita");

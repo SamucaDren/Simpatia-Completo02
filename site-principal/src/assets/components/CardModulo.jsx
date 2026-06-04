@@ -1,11 +1,27 @@
-import "./CardModulo.css";
+import { useEffect, useState } from "react";
+import styles from "./cardModulo.module.css";
 import { Link } from "react-router-dom";
 
 function CardModulo({ nome, descricao, link }) {
+  const [animando, setAnimando] = useState(true);
+
+  useEffect(() => {
+    setAnimando(false);
+
+    const timer = setTimeout(() => {
+      setAnimando(true);
+    }, 10);
+
+    return () => clearTimeout(timer);
+  }, [nome]);
+
   return (
-    <div className="card-modulo">
-      <div className="card-titulo">
-        <div className="card-icon">
+    <Link
+      className={`${styles.card_modulo} ${animando ? styles.cardAnimada : ""}`}
+      to={link}
+    >
+      <div className={styles.card_titulo}>
+        <div className={styles.card_icon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -23,13 +39,16 @@ function CardModulo({ nome, descricao, link }) {
             />
           </svg>
         </div>
-        <h4>{nome}</h4>
-        <hr></hr>
+
+        <h3>{nome}</h3>
       </div>
 
+      <hr className={styles.linhaModule} />
+
       <p>{descricao}</p>
+
       <Link to={link}>
-        Acessar{" "}
+        Acessar
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -43,7 +62,7 @@ function CardModulo({ nome, descricao, link }) {
           />
         </svg>
       </Link>
-    </div>
+    </Link>
   );
 }
 

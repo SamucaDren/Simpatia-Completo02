@@ -1,0 +1,221 @@
+.container_pagina {
+  display: flex;
+  padding: 0 24px;
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.conteudo_textual {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 608px;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.conteudo_textual h2 {
+  color: var(--Cores-Neutras-700);
+  text-align: center;
+  font-size: var(--heading-40-size);
+  font-weight: var(--heading-40-weight);
+  line-height: var(--heading-40-line);
+  margin: 0;
+  width: 100%;
+}
+.conteudo_textual p {
+  color: var(--Cores-Neutras-500);
+  text-align: center;
+  font-size: var(--body-18-size);
+  font-weight: var(--body-18-weight);
+  line-height: var(--body-18-line);
+  color: var(--neutro-500);
+  width: 100%;
+}
+.mudavel_lateral {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1232px;
+  align-items: center;
+}
+
+.botoes_flex {
+  position: relative;
+  display: flex;
+  margin-bottom: 32px;
+  justify-content: center;
+  width: 100%;
+  max-width: 608px;
+}
+
+.botoes_flex button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  color: var(--neutro-400);
+  padding: 16px 24px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--heading-18-size);
+  font-weight: var(--heading-18-weight);
+  line-height: var(--heading-18-line);
+  border-bottom: 2px solid var(--neutro-400);
+
+  &:hover {
+    border-color: var(--azul-claro-02);
+    color: var(--neutro-500);
+    svg {
+      fill: var(--azul-claro-02);
+    }
+  }
+}
+
+.barraSelectModules {
+  position: absolute;
+  background-color: var(--azul-principal);
+  height: 3px;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.professor {
+  transform: translateX(0%);
+}
+
+.aluno {
+  transform: translateX(100%);
+}
+
+.botoes_flex svg {
+  fill: var(--neutro-400);
+}
+.botoes_flex button.ativo {
+  color: var(--neutro-600);
+  font-size: var(--heading-18-size);
+
+  svg {
+    fill: var(--azul-principal);
+  }
+}
+
+.container_card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+.container_card_mobile {
+  display: none;
+}
+
+.botao_passar {
+  display: none;
+}
+
+.container_card_desktop {
+  display: flex;
+
+  width: 100%;
+  gap: 16px;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .container_pagina {
+    margin-top: 64px;
+    gap: 40px;
+  }
+
+  .conteudo_textual {
+    max-width: none;
+  }
+
+  .conteudo_textual h2 {
+    font-size: var(--heading-24-size);
+    font-weight: var(--heading-24-weight);
+    line-height: var(--heading-24-line);
+    margin: 0;
+  }
+  .conteudo_textual p {
+    font-size: var(--body-16-medium-size);
+    font-weight: var(--body-16-medium-weight);
+    line-height: var(--body-16-medium-line);
+    color: var(--neutro-500);
+  }
+  .botoes_flex button {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    font-size: var(--body-16-semi-size);
+    font-weight: var(--body-16-semi-weight);
+    line-height: var(--body-16-semi-line);
+    border-bottom: 2px solid var(--neutro-400);
+  }
+  .botoes_flex button.ativo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    color: var(--neutro-600);
+    font-size: var(--body-16-semi-size);
+  }
+  .container_card_desktop {
+    display: none;
+  }
+
+  .container_card_mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .botao_passar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .botao_passar button {
+    background: var(--roxo-claro-03);
+    border: none;
+    width: 75px;
+    height: 40px;
+    align-items: center;
+  }
+
+  .botao_passar svg {
+    fill: var(--roxo-claro-01);
+  }
+
+  .botao_passar button:first-of-type {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .botao_passar button:last-of-type {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .botao_passar button.ativo {
+    background: var(--roxo-claro-02);
+  }
+
+  .botao_passar button.ativo svg {
+    fill: var(--roxo-principal);
+  }
+}

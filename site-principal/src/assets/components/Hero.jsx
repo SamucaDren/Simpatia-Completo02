@@ -1,6 +1,6 @@
 import NavBar from "./Nav";
 import ButtonConhecerModulos from "./ButtonConhecerModulos";
-import "./Hero.css";
+import styles from "./hero.module.css";
 import ButtonUnifenas from "./ButtonUnifenas";
 import CarroselFotos from "./CarroselFotos";
 import React, { useState, useEffect } from "react";
@@ -36,20 +36,20 @@ function Hero() {
   }, [fotoAtual]);
 
   return (
-    <section className="fundo-hero">
+    <section className={styles.fundo_hero}>
       <NavBar />
-      <div className="secao-hero">
-        <div className="hero-container">
+      <div className={styles.secao_hero}>
+        <div className={styles.hero_container}>
           <h1>
             Uma nova forma de{" "}
-            <span className="texto_azul">{textoDigitado}</span> com <br></br>o
-            poder da IA
+            <span className={styles.texto_azul}>{textoDigitado}</span> com{" "}
+            <br></br>o poder da IA
           </h1>
           <p>
-            Ferramentas criadas para apoiar alunos e professores <br />
-            na sala de aula.
+            Ferramentas criadas para apoiar alunos e professores na sala de
+            aula.
           </p>
-          <div className="botoes">
+          <div className={styles.botoes}>
             <ButtonConhecerModulos
               texto="Quero conhecer os módulos!"
               mostrarIcone={false}
@@ -57,7 +57,7 @@ function Hero() {
             <ButtonUnifenas />
           </div>
         </div>
-        <div class="hero-container-foto">
+        <div class={styles.hero_container_foto}>
           <CarroselFotos onFotoChange={handleFotoChange} />
         </div>
       </div>
