@@ -9,7 +9,7 @@ const root = path.resolve(__dirname, "..");
 const srcBuild = path.join(root, "site-principal", "dist");
 
 // pasta de destino
-const dest = path.join(root, "simpatia", "site-principal");
+const dest = path.join(root, "simpatia_", "sites", "site-principal");
 
 // 1. Build do site
 console.log("Rodando build do site-principal...");
@@ -32,6 +32,7 @@ function copyFolderSync(src, dest) {
   fs.readdirSync(src).forEach((file) => {
     const srcPath = path.join(src, file);
     const destPath = path.join(dest, file);
+
     if (fs.lstatSync(srcPath).isDirectory()) {
       fs.mkdirSync(destPath, { recursive: true });
       copyFolderSync(srcPath, destPath);
@@ -43,4 +44,6 @@ function copyFolderSync(src, dest) {
 
 copyFolderSync(srcBuild, dest);
 
-console.log("Build do site-principal copiada com sucesso!");
+console.log(
+  "✅ Build do site-principal copiada com sucesso para simpatia_/sites/site-principal!",
+);
