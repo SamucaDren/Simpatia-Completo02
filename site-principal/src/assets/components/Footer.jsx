@@ -1,4 +1,4 @@
-import "./Footer.css";
+import styles from "./footer.module.css";
 import ButtonUnifenas from "./ButtonUnifenas";
 import ButtonConhecerModulos from "./ButtonConhecerModulos";
 import MODULOS_DATA from "../../data/modulosData";
@@ -8,16 +8,16 @@ function Footer() {
   const modulosProfessores = MODULOS_DATA.professor.slice(0, 3);
 
   return (
-    <footer className="footer-container">
-      <div className="footer-content">
+    <footer className={styles.footer_container}>
+      <div className={styles.footer_content}>
         {/* Divisão Esquerda */}
-        <div className="footer-left">
+        <div className={styles.footer_left}>
           <img
             src="./logosimpatia.svg"
             alt="Logo Simpatia"
-            className="footer-logo-simpatia"
+            className={styles.footer_logo_simpatia}
           />
-          <div className="footer-text-box">
+          <div className={styles.footer_text_box}>
             <p>
               O SIMPATIA foi desenvolvido por alunos da Unifenas a fim de
               auxiliar discentes e docentes com ferramentas de Inteligência
@@ -31,12 +31,12 @@ function Footer() {
         </div>
 
         {/* Divisão Meio/Direita */}
-        <div className="footer-right">
+        <div className={styles.footer_right}>
           {/* Divisão de cima */}
-          <div className="footer-right-top">
+          <div className={styles.footer_right_top}>
             {/* Coluna 1 (links) */}
-            <div className="footer-column">
-              <h3>Para Professores</h3>
+            <div className={styles.footer_column}>
+              <a href="/modules/professor">Para Professores</a>
               <ul>
                 {modulosProfessores.map((item, index) => (
                   <li key={index}>
@@ -46,8 +46,8 @@ function Footer() {
               </ul>
             </div>
             {/* Coluna 2 (links) */}
-            <div className="footer-column">
-              <h3>Para Alunos</h3>
+            <div className={styles.footer_column}>
+              <a href="/modules/aluno">Para Alunos</a>
               <ul>
                 {modulosAlunos.map((item, index) => (
                   <li key={index}>
@@ -58,8 +58,8 @@ function Footer() {
             </div>
           </div>
           {/* Divisão de baixo */}
-          <div className="footer-right-bottom">
-            <a href="/about" className="footer-text-know-more">
+          <div className={styles.footer_right_bottom}>
+            <a href="/about" className={styles.footer_text_know_more}>
               Conheça mais sobre o projeto
             </a>
             <ButtonUnifenas />
@@ -67,11 +67,11 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer-divider"></div>
-      <div className="footer-final-division">
-        <span className="atex-info">ATEX - © 2025 SIMPATIA</span>
-        <span className="system-info">-</span>
-        <span className="system-info">
+      <div className={styles.footer_divider}></div>
+      <div className={styles.footer_final_division}>
+        <span className={styles.atex_info}>ATEX - © 2025 SIMPATIA</span>
+        <span className={styles.system_info + " " + styles.traco}>-</span>
+        <span className={styles.system_info}>
           Sistema de Mídias Pedagógicas para Atividades com Inteligência
           Artificial
         </span>
