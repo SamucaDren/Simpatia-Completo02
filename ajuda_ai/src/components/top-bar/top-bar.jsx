@@ -56,7 +56,7 @@ const TopBar = () => {
           <ModuleIA />
           <Button
             types="outline"
-            onClick={() => window.open("/about", "_blank")}
+            onClick={() => window.open("/sobre", "_blank")}
           >
             Sobre o Projeto
           </Button>
@@ -95,7 +95,7 @@ const TopBar = () => {
           <Button
             types="outline"
             className={styles.btnTop}
-            onClick={() => window.open("/about", "_blank")}
+            onClick={() => window.open("/sobre", "_blank")}
           >
             Sobre o Projeto
           </Button>

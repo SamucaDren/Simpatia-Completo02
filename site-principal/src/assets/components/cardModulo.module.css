@@ -113,7 +113,7 @@
 
 @media screen and (max-width: 768px) {
   .card_modulo {
-    max-width: none;
+    max-width: 1232px;
     padding: 24px;
     gap: 24px;
     justify-content: space-between;

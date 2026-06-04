@@ -102,7 +102,7 @@ function NavBar() {
           </div>
 
           <hr />
-          <Link to="/about">Sobre o Projeto</Link>
+          <Link to="/sobre">Sobre o Projeto</Link>
           <hr />
         </div>
       </div>

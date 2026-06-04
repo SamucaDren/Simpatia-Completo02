@@ -167,7 +167,7 @@
   align-items: center;
   text-align: center;
   gap: 16px;
-  max-width: 800px;
+  max-width: 816px;
   width: 100%;
   margin: 0;
 }
@@ -190,18 +190,6 @@
   margin-bottom: 8px;
 }
 
-@media screen and (max-width: 768px) {
-  .secao_hero_alt {
-    margin-top: 10vh;
-    padding: 0 24px;
-  }
-
-  .hero_container_alt h1 {
-    font-size: var(--heading-32-size);
-    margin: 0;
-  }
-}
-
 .hero_container_alt h1 {
   font-size: var(--heading-64-size);
   font-weight: var(--heading-64-weight);
@@ -220,6 +208,24 @@
   line-height: var(--body-18-medium-line);
   margin: 0;
   color: var(--neutro-500);
+}
+
+@media screen and (max-width: 768px) {
+  .secao_hero_alt {
+    margin-bottom: 64px;
+    margin-top: 104px;
+    padding: 0 24px;
+  }
+
+  .hero_container_alt h1 {
+    font-size: var(--heading-32-size);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .hero_container_alt p {
+    font-size: 16px;
+  }
 }
 
 @keyframes blink {

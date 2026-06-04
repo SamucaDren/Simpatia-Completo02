@@ -36,7 +36,7 @@ function Footer() {
           <div className={styles.footer_right_top}>
             {/* Coluna 1 (links) */}
             <div className={styles.footer_column}>
-              <a href="/modules/professor">Para Professores</a>
+              <a href="/professor">Para Professores</a>
               <ul>
                 {modulosProfessores.map((item, index) => (
                   <li key={index}>
@@ -47,7 +47,7 @@ function Footer() {
             </div>
             {/* Coluna 2 (links) */}
             <div className={styles.footer_column}>
-              <a href="/modules/aluno">Para Alunos</a>
+              <a href="/aluno">Para Alunos</a>
               <ul>
                 {modulosAlunos.map((item, index) => (
                   <li key={index}>
@@ -59,7 +59,7 @@ function Footer() {
           </div>
           {/* Divisão de baixo */}
           <div className={styles.footer_right_bottom}>
-            <a href="/about" className={styles.footer_text_know_more}>
+            <a href="/sobre" className={styles.footer_text_know_more}>
               Conheça mais sobre o projeto
             </a>
             <ButtonUnifenas />

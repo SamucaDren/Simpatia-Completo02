@@ -33,7 +33,7 @@ function NavModulos() {
           <span className="tipo-sub body-16-medium">
             Ensine com mais eficiência.
           </span>
-          <Link class="link-cta" to="/modules/professor">
+          <Link class="link-cta" to="/professor">
             Ver todos
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ function NavModulos() {
           <span className="tipo-sub body-16-medium">
             Estude com apoio da IA.
           </span>
-          <Link class="link-cta" to="/modules/aluno">
+          <Link class="link-cta" to="/aluno">
             Ver todos
             <svg
               xmlns="http://www.w3.org/2000/svg"

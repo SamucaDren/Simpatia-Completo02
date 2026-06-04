@@ -1,6 +1,7 @@
 import ButtonConhecerModulos from "./ButtonConhecerModulos";
 import EclipseGiratoria from "./EclipseGiratoria";
 import styles from "./unifenas.module.css";
+//import fachada from "./fachadaunifenas.png";
 
 function Unifenas() {
   return (
@@ -26,7 +27,10 @@ function Unifenas() {
           </div>
         </div>
         <div className={styles.imagem_unifenas}>
-          <img src="./fachadaunifenas.png" alt="Logo Unifenas" />
+          <img
+            src={import.meta.env.BASE_URL + "fachadaunifenas.png"}
+            alt="fachada da Unifenas"
+          />
         </div>
       </div>
     </section>
