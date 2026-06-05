@@ -1,0 +1,217 @@
+.frame_atualizacoes_container {
+  display: flex;
+  width: 100%;
+  padding: 64px 24px 96px 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  margin: 0 auto;
+}
+
+.conteudo_atualizacoes {
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+
+.titulo_atualizacoes {
+  align-self: stretch;
+  text-align: center;
+  color: var(--neutro-700);
+  font-size: var(--heading-32-size);
+  font-weight: var(--heading-32-weight);
+  line-height: var(--heading-32-line);
+  margin: 0;
+}
+
+/* Container de um único item (Frame de Ícone, Texto e Botão) */
+.item_topico_container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  transition: transform ease-out 0.1s;
+  padding: 32px 0;
+
+  &:hover {
+    transform: translatey(-8px);
+  }
+}
+
+/* Frame ícone dos tópicos de atualização */
+.frame_icone_topico {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: 1/1;
+  background-color: #dbe6fc;
+  border-radius: 8px;
+}
+
+/* Ícone dos tópicos (div que contém o SVG) */
+.icone_topico {
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Frame texto dos tópicos */
+.frame_texto_topico {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+/* Título do tópico */
+.titulo_topico {
+  align-self: stretch;
+
+  color: var(--neutro-600);
+
+  font-size: var(--heading-24-size);
+  font-weight: var(--heading-24-weight);
+  line-height: var(--heading-24-line);
+  margin: 0;
+}
+
+/* Data do tópico */
+.data_topico {
+  overflow: hidden;
+  color: #006eff;
+  text-overflow: ellipsis;
+  margin: 0;
+
+  font-size: var(--body-18-medium-size);
+  font-weight: var(--body-18-medium-weight);
+  line-height: var(--body-18-medium-line);
+}
+
+/* Botão para ver o tópico */
+.botao_ver_topico {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  padding: 0 16px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  background: var(--roxo-claro-03);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Seta do botão (SVG) */
+.seta_topico {
+  width: 15px;
+  height: 8px;
+  flex-shrink: 0;
+  fill: var(--roxo-principal);
+}
+
+/* Linha divisória de cada tópico */
+.linha_divisoria_topico {
+  width: 100%;
+  height: 0;
+
+  border-top: 2px dashed #ece4ff;
+  background: none;
+}
+
+/* Ajustes para a lista de tópicos */
+.lista_topicos {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+.lista_topicos .item_topico_container:last-of-type + .linha_divisoria_topico {
+  display: none;
+}
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 768px) {
+  .frame_atualizacoes_container {
+    padding: 40px 24px 64px 24px;
+  }
+
+  .conteudo_atualizacoes {
+    gap: 32px;
+  }
+
+  .titulo_atualizacoes {
+    font-size: var(--heading-24-size);
+  }
+  .lista_topicos {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item_topico_container {
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .frame_icone_topico {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icone_topico svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .frame_texto_topico {
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+  }
+
+  .titulo_topico {
+    font-size: var(--heading-18-size);
+    line-height: var(--heading-18-line);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .data_topico {
+    font-size: var(--body-14-medium-size);
+    line-height: var(--body-14-medium-line);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .botao_ver_topico {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    flex-shrink: 0;
+    border-radius: 6px;
+
+    .seta_topico {
+      width: 12px;
+      height: 8px;
+      flex-shrink: 0;
+      fill: var(--roxo-principal);
+    }
+  }
+}

@@ -32,6 +32,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 1232px;
+  width: 100%;
   padding: 40px 0 0 0;
   flex-direction: row;
   align-items: center;

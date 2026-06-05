@@ -1,18 +1,15 @@
-import "./UnifenasAlt.css";
+import styles from "./unifenasAlt.module.css";
 
 function UnifenasAlt() {
   return (
-    <section className="inteiro">
-      <div className="fundo-unifenas-alt">
-        <div className="texto-unifenas-alt">
-          <div className="frame-tag-alt">
-            <h2 className="tag-sobre-alt">SOBRE</h2>
-          </div>
-          <h3 className="titulo-unifenas-page-alt">
-            Projeto desenvolvido por alunos da
-            <span className="unifenas-bold-alt"> Unifenas</span>
-          </h3>
-          <p className="texto-descricao-page-alt">
+    <section className={styles.inteiro}>
+      <div className={styles.fundo_unifenas}>
+        <div className={styles.texto_unifenas}>
+          <span className="tag">SOBRE</span>
+          <h2>
+            Projeto desenvolvido por alunos da <strong>Unifenas</strong>
+          </h2>
+          <p>
             O SIMPATIA é um sistema desenvolvido por alunos do curso de Ciência
             da Computação da Unifenas, com o objetivo de integrar Inteligência
             Artificial às práticas pedagógicas. Nosso propósito é oferecer
@@ -20,11 +17,11 @@ function UnifenasAlt() {
             eficaz
           </p>
         </div>
-        <div className="imagem-unifenas-alt">
+
+        <div className={styles.imagem_unifenas}>
           <img
-            src="./fachadaunifenas.png"
-            alt="Fachada Unifenas"
-            className="img-unifenas-page-alt"
+            src={import.meta.env.BASE_URL + "fachadaunifenas.png"}
+            alt="fachada da Unifenas"
           />
         </div>
       </div>

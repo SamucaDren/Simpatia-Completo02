@@ -1,0 +1,100 @@
+.unifenas_about_container {
+  position: absolute;
+  top: 474px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main_about_page {
+  position: relative;
+}
+
+/*--- ESTILOS PARA HERO ALT (VERSÃO SECUNDÁRIA) --- */
+.secao_hero_alt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 160px 24px 0;
+  width: 100%;
+  background: linear-gradient(180deg, #f8f8fc 0%, #dbe6fc 100%);
+}
+
+.bottom_barra_branca {
+  position: absolute;
+  background-color: white;
+  width: 100vw;
+  height: 220px;
+  bottom: -40px;
+  z-index: 0;
+}
+
+.hero_container_alt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 816px;
+  width: 100%;
+  margin: 0;
+}
+
+.hero_container_alt h1 {
+  font-size: var(--heading-64-size);
+  font-weight: var(--heading-64-weight);
+  color: var(--neutro-700);
+  line-height: 100%;
+  margin: 0;
+}
+
+.hero_container_alt .texto_azul {
+  color: var(--azul-principal);
+  font-weight: 800;
+}
+
+.hero_container_alt p {
+  font-size: var(--body-18-medium-size);
+  font-weight: var(--body-18-medium-weight);
+  line-height: var(--body-18-medium-line);
+  margin: 0;
+  color: var(--neutro-500);
+}
+
+@media screen and (max-width: 768px) {
+  .secao_hero_alt {
+    padding: 124px 24px 0px;
+  }
+
+  .bottom_barra_branca {
+    height: 340px;
+  }
+
+  .unifenas_about_container {
+    top: 360px;
+  }
+
+  .hero_container_alt h1 {
+    font-size: var(--heading-32-size);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .hero_container_alt p {
+    font-size: 16px;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
