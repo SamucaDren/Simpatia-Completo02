@@ -12,3 +12,4 @@ node_modules/.vite/
 .env.local
 .env.development
 .env.production
+**/.env
