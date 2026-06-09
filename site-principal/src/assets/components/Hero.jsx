@@ -36,8 +36,7 @@ function Hero() {
   }, [fotoAtual]);
 
   return (
-    <section className={styles.fundo_hero}>
-      <NavBar />
+    <header className={styles.fundo_hero}>
       <div className={styles.secao_hero}>
         <div className={styles.hero_container}>
           <h1>
@@ -61,7 +60,7 @@ function Hero() {
           <CarroselFotos onFotoChange={handleFotoChange} />
         </div>
       </div>
-    </section>
+    </header>
   );
 }
 

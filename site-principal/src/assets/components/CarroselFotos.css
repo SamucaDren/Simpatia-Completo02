@@ -70,6 +70,7 @@
 .eclipse-container {
   position: absolute;
   bottom: 170px;
+  width: fit-content;
   right: -10px;
 }
 
@@ -83,7 +84,7 @@
     position: absolute;
     bottom: 120px;
     left: 50%;
-    transform: translateX(-50%) translateX(180px);
+    transform: translateX(80%);
   }
 
   .foto1,

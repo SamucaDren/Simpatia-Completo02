@@ -190,7 +190,7 @@ a:hover {
 @media (max-width: 768px) {
   /* Layout principal */
   .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     transform: none;

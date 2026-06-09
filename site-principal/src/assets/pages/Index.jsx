@@ -5,12 +5,12 @@ import Faq from "../components/Faq";
 
 function Index() {
   return (
-    <>
+    <main>
       <Hero />
       <Descubra />
       <Unifenas />
       <Faq />
-    </>
+    </main>
   );
 }
 export default Index;
