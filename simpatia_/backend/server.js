@@ -31,8 +31,8 @@ app.post("/api/chat", async (req, res) => {
   } catch (error) {
     console.error(error);
 
-    res.status(500).json({
-      erro: "Falha ao consultar o Grok",
+    res.status(error.status || 500).json({
+      erro: error.message,
     });
   }
 });
