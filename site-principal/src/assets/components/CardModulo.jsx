@@ -16,9 +16,9 @@ function CardModulo({ nome, descricao, link }) {
   }, [nome]);
 
   return (
-    <Link
+    <a
       className={`${styles.card_modulo} ${animando ? styles.cardAnimada : ""}`}
-      to={link}
+      href={link}
     >
       <div className={styles.card_titulo}>
         <div className={styles.card_icon}>
@@ -47,7 +47,7 @@ function CardModulo({ nome, descricao, link }) {
 
       <p>{descricao}</p>
 
-      <Link to={link}>
+      <a href={link}>
         Acessar
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,8 +61,8 @@ function CardModulo({ nome, descricao, link }) {
             fill="#370199"
           />
         </svg>
-      </Link>
-    </Link>
+      </a>
+    </a>
   );
 }
 

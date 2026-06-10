@@ -9,19 +9,19 @@ const MODULOS_DATA = {
     {
       titulo: "Gerador de Questões Descritivas",
       descricao: "Crie e corrija questões descritivas",
-      link: "/gerador-questoes-descritivas",
+      link: "/gerador-questoes-descritivas/",
       id: "p2",
     },
     {
       titulo: "Acessibilidade Checker",
       descricao: "Avalie rapidamente a acessibilidade de páginas web.",
-      link: "/acessibilidade-checker",
+      link: "/acessibilidade-checker/",
       id: "p3",
     },
     {
       titulo: "Gerador de Plano de Aula ",
       descricao: "Gere seus planos de aula.",
-      link: "/gerador-plano-aula",
+      link: "/gerador-plano-aula/",
       id: "p4",
     },
   ],
@@ -29,25 +29,25 @@ const MODULOS_DATA = {
     {
       titulo: "Ajuda AI",
       descricao: "Crie e acompanhe provas e notas.",
-      link: "/ajuda-ai",
+      link: "/ajuda-ai/",
       id: "a1",
     },
     {
       titulo: "Oratória AI",
       descricao: "Treine argumentação para debates",
-      link: "/oratoria-ai",
+      link: "/oratoria-ai/",
       id: "a2",
     },
     {
       titulo: "Gerador de plano de estudos",
       descricao: "Gere um plano para estudar",
-      link: "/gerador-plano-estudo",
+      link: "/gerador-plano-estudo/",
       id: "a3",
     },
     {
       titulo: "Simpático",
       descricao: "Estude com IA",
-      link: "/simpatico",
+      link: "/simpatico/",
       id: "a4",
     },
     {
