@@ -5,17 +5,19 @@ const OpenAI = require("openai");
 
 const app = express();
 
+app.use(express.json());
+
 app.post("/api/chat", async (req, res) => {
   try {
     const { mensagem } = req.body;
 
     const client = new OpenAI({
-      apiKey: process.env.GROK_API_KEY,
-      baseURL: "https://api.x.ai/v1",
+      apiKey: process.env.GROQ_API_KEY,
+      baseURL: "https://api.groq.com/openai/v1",
     });
 
     const response = await client.chat.completions.create({
-      model: "grok-4",
+      model: "llama-3.1-8b-instant",
       messages: [
         {
           role: "user",
