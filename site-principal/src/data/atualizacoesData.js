@@ -1,74 +1,90 @@
 const FEATURES = [
   {
     titulo: "Criação inicial do Simpatia",
-    data: "JANEIRO DE 2023",
-    descricao: "Criação do projeto como Atividade de Extensao da Unifenas",
+    data: "NOVEMBRO DE 2024",
+    descricao:
+      "Desenvolvimento da primeira versão do Simpatia como projeto de Atividade de Extensão da Unifenas.",
+
     equipe: [
       "Davi Braga",
       "José Roberto Lupianez Filho",
-      "Pedro Henriqui de Paula Reis Siqueira",
+      "Pedro Henrique de Paula Reis Siqueira",
       "Mairon Kaito Teodoro",
       "Raphael Rocha da Silva Pereira",
       "Robert Vagner da Silva",
     ],
+
     topicos: {
       links: {
-        descricao: "",
-        links: ["https://simpatia.unifenas.br/index.html?"],
+        descricao: "Versão original do projeto.",
+        links: ["https://simpatia.unifenas.br/index.html"],
       },
-      introducao: "A equipe foi responsável criar do zero o sistema",
-      escolhas: `
-      Criaram Sistema de Criação de Planos de Aulas automatizados
-      Criaram Sistema de Criação de Questões automatizados
-      Priorizaram a funcionalidade e entrega funcional do sistema      
-      `,
+
+      introdução:
+        "A primeira versão do Simpatia foi desenvolvida em novembro de 2024 por uma equipe de estudantes da Unifenas como parte de uma Atividade de Extensão. O projeto surgiu para oferecer aos professores da universidade uma ferramenta baseada em Inteligência Artificial capaz de auxiliar na criação de materiais didáticos e na avaliação de atividades acadêmicas.",
+
+      escolhas:
+        "Desde o início, o Simpatia foi concebido como um assistente para apoiar o trabalho dos docentes. A equipe definiu como foco principal duas funcionalidades: a geração automática de planos de aula e a correção de questões dissertativas por Inteligência Artificial. Essas escolhas buscavam reduzir o tempo gasto em tarefas recorrentes e facilitar o planejamento e a avaliação das atividades de ensino.",
 
       processo:
-        "O processo de desenvolvimento foi feito em parceira com a Unifenas, utilizando metodologias ágeis e ferramentas colaborativas para garantir a entrega dentro dos prazos estabelecidos.",
+        "O desenvolvimento foi realizado em parceria com a Unifenas, passando pelas etapas de levantamento de requisitos, definição das funcionalidades, criação da interface e implementação dos recursos de Inteligência Artificial. Ao final do projeto, foi disponibilizada uma plataforma capaz de gerar planos de aula e corrigir respostas dissertativas a partir dos critérios definidos pelo professor.",
+
       fotos: {
-        descricao: "",
-        fotos: ["/fotos-features/criacaoinicial.png"],
+        descricao:
+          "Primeira versão do Simpatia desenvolvida pela equipe original.",
+        fotos: [
+          "/fotos-features/criacaosimpatia01.webp",
+          "/fotos-features/criacaosimpatia02.webp",
+        ],
       },
-      conclusao: "Entrega de um sistema funcional e usavel.",
+
+      conclusao:
+        "A equipe entregou a primeira versão do Simpatia com as funcionalidades que deram origem ao projeto. O trabalho estabeleceu a base técnica e conceitual que permitiu a continuidade do desenvolvimento e a expansão da plataforma nos ciclos seguintes.",
     },
+
     id: 1,
   },
   {
-    titulo: "Atualização do Front-End / Nova Interface",
+    titulo: "Expansão do Simpatia e Nova Interface",
     data: "SETEMBRO DE 2025",
     descricao:
-      "A atualização modernizou toda a camada visual, trazendo uma experiência mais fluida, rápida e padronizada. O foco foi melhorar navegação, identidade visual e usabilidade tanto para alunos quanto para professores.",
+      "Transformação do Simpatia em um ecossistema de módulos com Inteligência Artificial para professores e alunos, acompanhada da criação de uma nova identidade visual e da plataforma central do projeto.",
+
     equipe: [
       "Clinton Nogueira Silva",
       "Luiz Felipe dos Reis Baldini",
       "Rafael Oliveira de Carvalho Lopes",
       "Samuel Nogueira da Silva",
     ],
+
     topicos: {
       links: {
-        descricao: "",
+        descricao: "Repositório do projeto e instituição parceira.",
         links: [
           "https://github.com/clintonsilvas/Simpatia",
           "https://www.unifenas.br",
         ],
       },
-      introducao:
-        "A equipe foi responsável por reformular a interface principal do sistema, tornando-a mais clara, responsiva e acessível tanto para professores quanto para alunos. O foco foi criar uma experiência consistente e intuitiva, que pudesse ser facilmente escalada para novos módulos.",
-      escolhas: `
-      Paleta de cores: Definimos como padrão fundos claros para uma experiência suave. Azul foi mantido como cor primária de identidade, e roxo como cor de ação.
-      Tipografia: Adotamos uma hierarquia simples com títulos em destaque e textos secundários neutros para melhorar a leitura em qualquer dispositivo.
-      Ícones: Optamos pela biblioteca Phosphor Icons, priorizando a versão Regular para manter consistência visual.
-      `,
+
+      introdução:
+        "Em 2025, uma nova equipe assumiu a continuidade do Simpatia com uma proposta mais ampla. O projeto deixou de ser uma ferramenta voltada exclusivamente para professores e passou a ser concebido como um ecossistema de módulos baseados em Inteligência Artificial para professores e alunos. Cada equipe participante ficou responsável pelo desenvolvimento de um módulo específico, contribuindo para a construção de uma plataforma integrada.",
+
+      escolhas:
+        "A equipe ficou responsável por definir a identidade visual e a experiência da plataforma principal. A nova linguagem visual foi desenvolvida com base na primeira versão do Simpatia, preservando sua essência enquanto introduzia uma aparência mais moderna e consistente. Também foram definidos padrões de cores, tipografia, componentes, espaçamentos e navegação que serviriam como referência para os demais grupos durante o desenvolvimento de seus módulos.",
 
       processo:
-        "Planejamento no Figma, criação do design system, componentização com React + Tailwind, testes internos e ajustes de contraste e espaçamento.",
+        "O trabalho começou pela criação da interface no Figma e pela definição do Design System do projeto. Em seguida, foi desenvolvida a plataforma principal utilizando React e Vite. Nessa etapa foram criadas a página inicial do Simpatia, as páginas de apresentação dos módulos, a área dedicada à documentação do projeto e o espaço de reconhecimento de todas as equipes participantes. Após a conclusão dos módulos desenvolvidos pelos demais grupos, a equipe também ficou responsável pela integração de todos os projetos e pela publicação do ecossistema completo.",
+
       fotos: {
-        descricao: "",
-        fotos: ["/fotos-features/atualizacaointerface.png"],
+        descricao:
+          "Primeira versão da plataforma central do ecossistema Simpatia.",
+        fotos: ["/fotos-features/atualizacaointerace01.webp"],
       },
-      conclusao:
-        "A nova interface tornou o sistema mais modular, acessível e preparado para receber novos módulos de forma consistente.",
+
+      conclusão:
+        "Essa etapa redefiniu o Simpatia como uma plataforma composta por múltiplos módulos integrados. Além de estabelecer uma identidade visual unificada para o projeto, o trabalho criou a estrutura necessária para conectar as soluções desenvolvidas pelas diferentes equipes em um único ambiente.",
     },
+
     id: 2,
   },
   {
