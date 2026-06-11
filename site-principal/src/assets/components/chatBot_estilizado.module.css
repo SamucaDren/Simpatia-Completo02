@@ -1,0 +1,297 @@
+.chatBotContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  transition: transform 0.3s ease;
+  border: none;
+  background: transparent;
+}
+
+/* Movimento dos olhos */
+.olhosMovimento {
+  animation: moverOlhos 6s infinite ease-in-out;
+}
+
+/* Piscada */
+.olhosPiscar {
+  transform-origin: center;
+  animation: piscar 4s infinite;
+  transition: transform 0.15s ease;
+}
+
+/* Cabeça */
+.robozimHead {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Hover */
+.chatBotContainer:hover .robozimHead {
+  animation: mexerCabeca 1.2s infinite ease-in-out;
+}
+.chatBotContainer:hover {
+  transform: translateY(-12px);
+}
+
+.chatBotContainer:hover .olhosMovimento {
+  animation: none;
+}
+
+.chatBotContainer:hover .olhosPiscar {
+  animation: none;
+  transform: scaleY(0.1);
+}
+
+/* =========================
+     Movimento dos olhos
+     ========================= */
+
+@keyframes moverOlhos {
+  /* Centro */
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  /* Direita */
+  15%,
+  25% {
+    transform: translate(4px, 0);
+  }
+
+  /* Cima */
+  35%,
+  45% {
+    transform: translate(0, -3px);
+  }
+
+  /* Esquerda */
+  55%,
+  65% {
+    transform: translate(-4px, 0);
+  }
+
+  /* Baixo */
+  75%,
+  85% {
+    transform: translate(0, 3px);
+  }
+
+  /* Centro */
+  90% {
+    transform: translate(0, 0);
+  }
+}
+
+/* =========================
+     Piscada
+     ========================= */
+
+@keyframes piscar {
+  0%,
+  48%,
+  52%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* =========================
+     Cabeça balançando
+     ========================= */
+
+@keyframes mexerCabeca {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  15% {
+    transform: rotate(-8deg) translateY(2px);
+  }
+
+  30% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  45% {
+    transform: rotate(8deg) translateY(2px);
+  }
+
+  60% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  75% {
+    transform: rotate(-6deg) translateY(1px);
+  }
+
+  90% {
+    transform: rotate(6deg) translateY(1px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+.chatbot {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+
+.chatbot_button {
+  background: var(--roxo-principal);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.chatbot_button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.chatbot_box {
+  width: 400px;
+  height: 500px;
+  background: var(--neutro-000);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  animation: abrirChat 0.35s ease-out;
+}
+
+.chatbot_header {
+  background: var(--roxo-01);
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.chatbot_header button {
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chatbot_header button:hover {
+  transform: scale(1.05);
+}
+
+.chatbot_messages {
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chatbot_messages .user,
+.chatbot_messages .bot {
+  display: inline-block;
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  margin: 4px 0;
+
+  animation: aparecerMensagem 0.25s ease-out;
+}
+
+.chatbot_messages .user {
+  align-self: flex-end;
+  background-color: var(--roxo-01);
+}
+
+.chatbot_messages .bot {
+  align-self: flex-start;
+  background-color: var(--roxo-claro-03);
+}
+
+.chatbot_input {
+  display: flex;
+}
+
+.chatbot_input input {
+  flex: 1;
+  padding: 12px;
+  outline: none;
+  border: none;
+  border-bottom: 5px solid #3498db;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.chatbot_input input:focus {
+  background-color: var(--neutro-100);
+  border-bottom-color: var(--roxo-principal);
+}
+
+.chatbot_input button {
+  padding: 10px 16px;
+  background-color: var(--roxo-01);
+  color: var(--neutro-000);
+  border: none;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chatbot_input button:hover {
+  transform: scale(1.03);
+}
+
+.chatbot_input button:active {
+  transform: scale(0.97);
+}
+
+@keyframes abrirChat {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes aparecerMensagem {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -5,6 +5,7 @@ import Ferramentas from "./assets/pages/Modules.jsx";
 import Index from "./assets/pages/Index.jsx";
 import Features from "./assets/pages/Features.jsx";
 import ChatBot from "./assets/components/ChatBot.jsx";
+import ChatBotStylized from "./assets/components/chatBot_estilizado.jsx";
 import UpdatesPage from "./assets/pages/About.jsx";
 import { useParams } from "react-router-dom";
 
@@ -45,7 +46,8 @@ function App() {
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
 
-      <ChatBot />
+      {/*<ChatBot />*/}
+      <ChatBotStylized />
       <Footer />
     </BrowserRouter>
   );
