@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const OpenAI = require("openai");
 
-const BASE_URL = `${req.protocol}://${req.get("host")}`;
+//const BASE_URL = `${req.protocol}://${req.get("host")}`;
 
 const groq = new OpenAI({
   apiKey: process.env.GROQ_API_KEY,
@@ -188,7 +188,7 @@ function generateHtmlFromContext(data) {
                 position: absolute;
                 top: 0; left: 0; right: 0; bottom: 0;
                 z-index: -1;
-                background-image: url('${BASE_URL}/logos/MarcaDaAgua-removebg-preview.png');
+                background-image: url('/gerador-plano-aula/logos/MarcaDaAgua-removebg-preview.png');
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: 80%;
@@ -235,7 +235,7 @@ function generateHtmlFromContext(data) {
             @media print {
                 .page-a4::before {
                     content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
-                    background-image: url('${BASE_URL}/logos/MarcaDaAgua-removebg-preview.png');
+                    background-image: url('/gerador-plano-aula/logos/MarcaDaAgua-removebg-preview.png');
                     background-repeat: no-repeat; background-position: center center;
                     background-size: 80%; opacity: 0.1;
                 }
@@ -246,7 +246,7 @@ function generateHtmlFromContext(data) {
     <body>
         <div class="page-a4">
             <div class="logo-container">
-                <img src="${BASE_URL}/logos/LogoUnifenasPlano.png" alt="Logo da Instituição" />
+                <img src="/gerador-plano-aula/logos/LogoUnifenasPlano.png" alt="Logo da Instituição" />
             </div>
             <hr />
             <div class="info-block">
@@ -296,7 +296,7 @@ function generateHtmlFromContext(data) {
             <div class="bibliografia-content" id="bibliografia-complementar-content">${complementares}</div>
             <hr />
             <div class="logo-container">
-                <img src="${BASE_URL}/logos/LogoUnifenasPlano.png" alt="Logo da Instituição" />
+                <img src="/gerador-plano-aula/logos/LogoUnifenasPlano.png" alt="Logo da Instituição" />
             </div>
             <hr />
             <div class="info-block">
