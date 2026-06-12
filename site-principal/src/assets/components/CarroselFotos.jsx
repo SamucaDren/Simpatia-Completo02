@@ -4,32 +4,27 @@ import EclipseGiratoria from "./EclipseGiratoria";
 
 function CarroselFotos({ onFotoChange }) {
   const [fotoVisivel, setFotoVisivel] = useState(1);
-  const intervaloRef = useRef(null); // mantém referência do intervalo ativo
+  const intervaloRef = useRef(null);
 
-  // Função para alternar a foto automaticamente
   const mudarFoto = () => {
     setFotoVisivel((prevFoto) => (prevFoto === 1 ? 2 : 1));
   };
 
-  // Função para resetar o temporizador
   const resetarIntervalo = () => {
     if (intervaloRef.current) clearInterval(intervaloRef.current);
     intervaloRef.current = setInterval(mudarFoto, 5000);
   };
 
-  // Cria o intervalo inicial
   useEffect(() => {
     resetarIntervalo();
     return () => clearInterval(intervaloRef.current);
   }, []);
 
-  // Quando o usuário clica manualmente, muda a foto e reseta o tempo
   const handleClick = (foto) => {
     setFotoVisivel(foto);
-    resetarIntervalo(); // ← reinicia o ciclo ao clicar
+    resetarIntervalo();
   };
 
-  // Sempre que a foto muda, avisa o Hero
   useEffect(() => {
     if (onFotoChange) onFotoChange(fotoVisivel);
   }, [fotoVisivel, onFotoChange]);
@@ -37,8 +32,14 @@ function CarroselFotos({ onFotoChange }) {
   return (
     <div className="fotos">
       <div className="fundo"></div>
-      <div className={`foto1 ${fotoVisivel === 1 ? "visible" : ""}`}></div>
-      <div className={`foto2 ${fotoVisivel === 2 ? "visible" : ""}`}></div>
+      <div
+        fetchPriority="high"
+        className={`foto2 ${fotoVisivel === 1 ? "visible" : ""}`}
+      />
+      <div
+        fetchPriority="high"
+        className={`foto1 ${fotoVisivel === 2 ? "visible" : ""}`}
+      />
 
       <div className="menu">
         <span

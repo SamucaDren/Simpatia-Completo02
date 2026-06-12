@@ -10,29 +10,26 @@ function Hero() {
   const palavras = ["aprender", "ensinar"];
   const [fotoAtual, setFotoAtual] = useState(1);
 
-  // Estado que vai conter o texto que aparece letra por letra
   const [textoDigitado, setTextoDigitado] = useState("");
 
-  // Quando o CarrosselFotos mudar a foto, atualizamos o texto
   const handleFotoChange = (novaFoto) => {
     setFotoAtual(novaFoto);
   };
 
-  // Máquina de escrever
   useEffect(() => {
     const palavra = palavras[fotoAtual - 1];
     let index = 0;
-    setTextoDigitado(""); // reseta o texto
+    setTextoDigitado("");
 
     const intervalo = setInterval(() => {
       setTextoDigitado((prev) => prev + palavra[index]);
       index++;
       if (index >= palavra.length) {
-        clearInterval(intervalo); // quando terminar, limpa o intervalo
+        clearInterval(intervalo);
       }
-    }, 150); // velocidade da digitação (ms por letra)
+    }, 150);
 
-    return () => clearInterval(intervalo); // limpa caso o efeito seja reiniciado
+    return () => clearInterval(intervalo);
   }, [fotoAtual]);
 
   return (

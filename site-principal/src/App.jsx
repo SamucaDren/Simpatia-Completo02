@@ -33,7 +33,7 @@ function App() {
 
         {/* ROTAS FIXAS */}
         <Route path="/sobre" element={<UpdatesPage />} />
-        <Route path="/recurso/:id" element={<Features />} />
+        <Route path="/recurso/:slug" element={<Features />} />
 
         {/* ROTA DINÂMICA VALIDADA */}
         <Route

@@ -1,10 +1,13 @@
 const FEATURES = [
   {
+    id: 1,
     titulo: "Criação inicial do Simpatia",
-    data: "NOVEMBRO DE 2024",
     descricao:
       "Desenvolvimento da primeira versão do Simpatia como projeto de Atividade de Extensão da Unifenas.",
-
+    slug: "criacao-simpatia",
+    keywords:
+      "simpatia, criação do simpatia, primeira versão do simpatia, história do simpatia, unifenas, atividade de extensão, inteligência artificial na educação, tecnologia educacional, plano de aula com ia, correção de questões dissertativas, avaliação automática, ferramentas para professores, projeto de computação, ciência da computação unifenas, inovação educacional, desenvolvimento de software educacional, assistente pedagógico, ensino superior, educação digital, projeto acadêmico",
+    data: "NOVEMBRO DE 2024",
     equipe: [
       "Davi Braga",
       "José Roberto Lupianez Filho",
@@ -41,8 +44,6 @@ const FEATURES = [
       conclusao:
         "A equipe entregou a primeira versão do Simpatia com as funcionalidades que deram origem ao projeto. O trabalho estabeleceu a base técnica e conceitual que permitiu a continuidade do desenvolvimento e a expansão da plataforma nos ciclos seguintes.",
     },
-
-    id: 1,
   },
   {
     titulo: "Expansão do Simpatia e Nova Interface",
@@ -86,6 +87,10 @@ const FEATURES = [
     },
 
     id: 2,
+    slug: "expansao-nova-interface",
+
+    keywords:
+      "expansão do simpatia, nova interface simpatia, ecossistema simpatia, plataforma simpatia, inteligência artificial para educação, ia para professores, ia para alunos, unifenas, projeto simpatia, design system, identidade visual, interface educacional, react vite, desenvolvimento web educacional, tecnologia educacional, inovação acadêmica, módulos de inteligência artificial, ferramentas educacionais, plataforma de aprendizagem, experiência do usuário, ux ui, sistema educacional, ciência da computação unifenas, integração de sistemas, software educacional",
   },
   {
     titulo: "Gerador de Questões Objetivas",
@@ -116,6 +121,10 @@ const FEATURES = [
         "Como resultado, o módulo demonstrou eficiência na geração automática de questões, atendendo às necessidades de personalização e agilidade dos usuários. A equipe adquiriu aprendizados importantes sobre organização em camadas, boas práticas com Spring Boot e validação de dados para garantir consistência no sistema. Além disso, o desenvolvimento reforçou a importância de testes contínuos e de um design focado na experiência do usuário. Para o futuro, o módulo pode ser ampliado com integração com bancos de dados, novas formas de exportação, melhorias na interface e maior uso de inteligência artificial para aprimorar a qualidade das perguntas geradas.",
     },
     id: 3,
+    slug: "gerador-de-questoes-objetivas",
+
+    keywords:
+      "gerador de questões objetivas, geração de questões com inteligência artificial, questões de múltipla escolha, exercícios personalizados, criação automática de avaliações, ferramentas para professores, educação digital, tecnologia educacional, inteligência artificial na educação, simulados automáticos, banco de questões, questões para provas, revisão de conteúdo, aprendizagem personalizada, spring boot, java, desenvolvimento educacional, projeto unifenas, plataforma simpatia, geração de exercícios, avaliação acadêmica, ensino superior, inovação educacional",
   },
   {
     titulo: "Gerador de Questões Descritivas",
@@ -193,6 +202,10 @@ const FEATURES = [
         "Ao final do desenvolvimento, o módulo atendeu aos objetivos propostos e mostrou-se funcional, estável e integrado ao restante do sistema. A equipe ampliou seus conhecimentos sobre arquitetura de software, boas práticas de desenvolvimento e uso das tecnologias aplicadas, adquirindo mais confiança para criar soluções completas. Embora o resultado atual seja satisfatório, ainda existem oportunidades de evolução, como otimizar alguns processos internos, ampliar testes automatizados, se possível uma ideia de layout e adicionar novas funcionalidades para tornar o módulo ainda mais robusto e flexível em versões futuras.",
     },
     id: 4,
+    slug: "gerador-de-questoes-descritivas",
+
+    keywords:
+      "gerador de questões descritivas, correção de questões discursivas, inteligência artificial para professores, avaliação automática, correção com ia, geração de prompts educacionais, análise de respostas de alunos, questões abertas, educação digital, tecnologia educacional, inteligência artificial na educação, google gemini, upload de imagens, correção de atividades, ferramentas para docentes, automação educacional, ensino superior, projeto simpatia, unifenas, avaliação acadêmica, feedback automatizado, aprendizagem personalizada, inovação educacional, assistente para professores",
   },
   {
     titulo: "Acessibilidade Checker",
@@ -252,6 +265,10 @@ const FEATURES = [
         "O Acessibilidade Checker alcançou seu objetivo de fornecer uma ferramenta de análise rápida e eficiente, combinando a precisão da inteligência artificial com a robustez do web scraping (Puppeteer). A equipe obteve um aprendizado profundo sobre integração de APIs de IA, arquitetura full-stack (Node/Express) e as nuances da automação de testes visuais. Como melhoria futura, planejamos adicionar o armazenamento histórico dos resultados de análise e integrar o módulo a um sistema de login para permitir que professores gerenciem relatórios de várias páginas ao longo do tempo.",
     },
     id: 5,
+    slug: "acessibilidade-checker",
+
+    keywords:
+      "acessibilidade checker, acessibilidade web, WCAG 2.2, análise de acessibilidade, inteligência artificial, IA para acessibilidade, auditoria de acessibilidade, inclusão digital, avaliação de sites, acessibilidade para professores, acessibilidade para desenvolvedores, acessibilidade para designers, relatório WCAG, Gemini AI, Puppeteer, Node.js, Express, validação de acessibilidade, conformidade WCAG, acessibilidade digital, projeto Simpatia",
   },
   {
     titulo: "Gerador de Plano de Aula ",
@@ -292,6 +309,10 @@ const FEATURES = [
         "Em suma, os resultados obtidos com o módulo de Geração de Planos de Aula com IA são extremamente positivos, validando a premissa de que a tecnologia pode, de fato, reduzir a carga burocrática dos professores, resultando em planos detalhados e personalizados gerados em uma fração do tempo usual. O principal aprendizado da equipe técnica reside na maestria da Engenharia de Prompt, que se mostrou essencial para forçar o Gemini a aderir a formatos pedagógicos rígidos e estruturados, e na eficácia de tecnologias como o Tailwind CSS para prototipagem rápida e responsiva. Para melhorias futuras, o módulo está pronto para evoluir, incorporando recursos cruciais como a integração direta e para exportação automática, a criação de perfis de usuário com repositórios de planos salvos e a inclusão de um recurso de feedback e avaliação de planos por pares, solidificando sua posição como uma ferramenta indispensável no ecossistema educacional.",
     },
     id: 6,
+    slug: "gerador-plano-aula",
+
+    keywords:
+      "gerador de plano de aula, plano de aula com inteligência artificial, criação de plano de aula, planejamento pedagógico, IA para professores, assistente educacional, geração automática de plano de aula, plano de aula personalizado, Gemini AI, planejamento escolar, ferramenta para professores, tecnologia educacional, edtech, criação de aulas, elaboração de plano de ensino, plano de aula online, automação educacional, chat para edição de planos, exportação de plano de aula em PDF, projeto Simpatia",
   },
   {
     titulo: "Ajuda Inteligencia Artificial ",
@@ -330,6 +351,10 @@ O resultado entregue contempla um conjunto de agentes de IA especializados em di
           `,
     },
     id: 7,
+    slug: "ajuda-inteligencia-artificial",
+
+    keywords:
+      "ajuda inteligência artificial, tutor virtual com IA, agente de inteligência artificial, assistente educacional, aprendizagem ativa, IA para estudantes, inteligência artificial para educação, chat educacional, agentes especializados, Gemini AI, tutor inteligente, ensino personalizado, apoio ao estudante, resolução de dúvidas, aprendizado guiado, pensamento crítico, plataforma educacional, tecnologia educacional, edtech, projeto Simpatia",
   },
   {
     titulo: "Simpático IA , Oratória",
@@ -362,6 +387,10 @@ O resultado entregue contempla um conjunto de agentes de IA especializados em di
           `,
     },
     id: 8,
+    slug: "simpatico-ia-oratoria",
+
+    keywords:
+      "oratória com inteligência artificial, treino de argumentação, debate com IA, simpático IA, desenvolvimento da comunicação, habilidades de fala, prática de debates, inteligência artificial para educação, comunicação oral, pensamento crítico, persuasão, expressão verbal, treinamento de oratória, IA para estudantes, debate educacional, aprendizado interativo, React, TypeScript, tecnologia educacional, projeto Simpatia",
   },
   {
     titulo: "Gerador de plano de estudos ",
@@ -399,6 +428,10 @@ Os resultados obtidos foram, agilidade e melhor direcionamento, no cronograma de
           `,
     },
     id: 9,
+    slug: "gerador-plano-estudos",
+
+    keywords:
+      "gerador de plano de estudos, plano de estudos inteligente, organização dos estudos, cronograma de estudos, planejamento acadêmico, rotina de estudos, gerenciamento do tempo, produtividade estudantil, inteligência artificial para estudantes, planejamento personalizado, método de estudo, organização acadêmica, aprendizagem eficiente, tecnologia educacional, edtech, apoio ao estudante, planejamento educacional, estudo personalizado, ferramenta para estudantes, projeto Simpatia",
   },
   {
     titulo: "Simpatico",
@@ -437,7 +470,11 @@ Os resultados obtidos foram, agilidade e melhor direcionamento, no cronograma de
         Atualização da Interface
         `,
     },
-    id: 9,
+    id: 10,
+    slug: "simpatico",
+
+    keywords:
+      "simpático, assistente virtual educacional, tirar dúvidas com IA, inteligência artificial para estudantes, chat educacional, suporte ao aprendizado, tutor virtual, assistente acadêmico, perguntas e respostas, plataforma educacional, aprendizagem digital, tecnologia educacional, edtech, apoio ao estudante, inteligência artificial aplicada à educação, resolução de dúvidas, chatbot educacional, React, interface moderna, projeto Simpatia",
   },
 ];
 
