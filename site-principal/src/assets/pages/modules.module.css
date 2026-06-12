@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
   padding: 40px 24px 40px;
+
+  h2 {
+    position: absolute;
+    opacity: 0;
+  }
 }
 .cabecalho {
   display: flex;

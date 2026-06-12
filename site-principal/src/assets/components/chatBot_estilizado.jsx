@@ -52,6 +52,7 @@ function ChatBotStylized() {
         <button
           className={styles.chatBotContainer}
           onClick={() => setOpen(true)}
+          aria-label="Abrir chat-bot"
         >
           <svg
             width="104"

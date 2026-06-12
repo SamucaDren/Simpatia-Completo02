@@ -136,6 +136,7 @@ function Ferramentas({ todosModulos }) {
         />
 
         <div className={styles.modulos_container}>
+          <h2> Confira os módulos disponíveis</h2>
           <div className={styles.cabecalho}>
             <p>{listaModulos.length} módulos</p>
 

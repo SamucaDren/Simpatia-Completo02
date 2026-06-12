@@ -72,6 +72,7 @@ function Descubra() {
             }`}
           />
           <button
+            aria-label="Selecionar categoria Professores"
             className={categoriaSelecionada === "Professor" ? styles.ativo : ""}
             onClick={() => setCategoriaSelecionada("Professor")}
           >
@@ -87,6 +88,7 @@ function Descubra() {
             Professores
           </button>
           <button
+            aria-label="Selecionar categoria Alunos"
             className={
               categoriaSelecionada === "Aluno" ? styles.ativo : styles.inativo
             }
@@ -125,6 +127,7 @@ function Descubra() {
         </div>
         <div className={styles.botao_passar}>
           <button
+            aria-label="Voltar card"
             className={isButtonClick ? styles.ativo : styles.inativo}
             onClick={() => {
               handleProximoCard();
@@ -142,6 +145,7 @@ function Descubra() {
             </svg>
           </button>
           <button
+            aria-label="Avançar card"
             className={!isButtonClick ? styles.ativo : styles.inativo}
             onClick={() => {
               handleProximoCard();

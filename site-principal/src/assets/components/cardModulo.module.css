@@ -101,7 +101,7 @@
   transition: all 0.2s ease;
 }
 
-.card_modulo a {
+.card_modulo .cta {
   color: var(--roxo-principal);
   border-radius: 8px;
   background: #d6ccee;

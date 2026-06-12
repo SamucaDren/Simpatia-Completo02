@@ -47,7 +47,7 @@ function CardModulo({ nome, descricao, link }) {
 
       <p>{descricao}</p>
 
-      <a href={link}>
+      <span className={styles.cta}>
         Acessar
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ function CardModulo({ nome, descricao, link }) {
             fill="#370199"
           />
         </svg>
-      </a>
+      </span>
     </a>
   );
 }
