@@ -1,25 +1,50 @@
 FROM node:22-alpine
 
-RUN apk add --no-cache nginx
+# Instala nginx + dependências necessárias pro Puppeteer não quebrar
+RUN apk add --no-cache \
+    nginx \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
 
+# Diretório base
 WORKDIR /app
 
-# Backend
-COPY backend/package*.json ./backend/
+# =========================
+# BACKEND
+# =========================
 WORKDIR /app/backend
+
+COPY backend/package*.json ./
+
+# Instala dependências (evita rebuild quebrado)
 RUN npm install
 
-# Copia o restante
-WORKDIR /app
-COPY backend ./backend
+# Copia o resto do backend
+COPY backend ./
 
-# Frontend
+# Puppeteer config (evita download de chrome)
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# =========================
+# FRONTEND (STATIC)
+# =========================
+WORKDIR /app
+
 COPY sites /usr/share/nginx/html
 
-# Nginx
+# =========================
+# NGINX CONFIG
+# =========================
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Script de inicialização
+# =========================
+# START SCRIPT
+# =========================
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 

@@ -26,7 +26,7 @@ async function sendMessage() {
 
   try {
     // Envia a mensagem para o seu servidor back-end
-    const response = await fetch("http://localhost:3000/api/chat", {
+    const response = await fetch("/api/gerador-plano-aula/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: message }),
@@ -65,7 +65,7 @@ downloadPdfBtn.addEventListener("click", async () => {
   const htmlContent = planOutput.innerHTML;
 
   try {
-    const response = await fetch("http://localhost:3000/api/generate-pdf", {
+    const response = await fetch("/api/gerador-plano-aula/generate-pdf", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ htmlContent: htmlContent }),
