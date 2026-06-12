@@ -53,7 +53,7 @@ app.use(
 );
 
 //GERADOR DE PLANOS DE AULA
-/*
+
 app.use(
   "/api/gerador-plano-aula/chat",
   require("./routes/gerador-plano-aula/chat"),
@@ -67,7 +67,7 @@ app.use(
 app.use(
   "/api/gerador-plano-aula/tutorial",
   require("./routes/gerador-plano-aula/tutorial"),
-);*/
+);
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
