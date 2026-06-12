@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
     typeSelect.addEventListener("change", toggleAlternativas);
   }
 });
+
+document.getElementById("logo").src =
+  window.location.origin + "/images/logo-simpatia.png";
+
 function exportPDF() {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF("p", "mm", "a4");
@@ -181,10 +185,8 @@ async function sendMessage() {
     body: JSON.stringify({ message: message }),
   });
 
-  //const data = await response.json();
+  const data = await response.json();
 
-  const text = await response.text();
-  console.log(text);
   content.innerHTML += `<p style="margin-bottom:10px; color:#444a52;"><b>IA:</b> ${data.response}</p>`;
   content.scrollTop = content.scrollHeight;
 }
@@ -226,8 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const data = await response.json();
-
-        console.log("Resposta da API:", data);
 
         let questions = data.questions || data.data || data;
 
