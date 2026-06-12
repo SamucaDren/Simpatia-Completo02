@@ -359,8 +359,17 @@ router.post("/", async (req, res) => {
         Mensagem do usuário: "${message}"
 
         Sua resposta (somente o objeto JSON completo):
-    `;
+⚠️ IMPORTANTE:
+- Retorne APENAS o JSON puro.
+- NÃO use markdown.
+- NÃO escreva explicações antes ou depois.
+- NÃO inclua texto fora do JSON.
+- Se incluir qualquer texto extra, a resposta será inválida.
 
+
+O campo "recursos" deve ser STRING separada por vírgula, nunca array.
+Ex: "Slides, Internet, Computador"
+    `;
   let updatedData = context;
   let retryCount = 0;
   const maxRetries = 3;
@@ -377,11 +386,17 @@ router.post("/", async (req, res) => {
       const textResponse =
         completion.choices?.[0]?.message?.content?.trim() || "";
       const cleanedResponse = textResponse
-        .replace(/```json\n?|```/g, "")
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
         .trim();
 
+      const jsonOnly = cleanedResponse.substring(
+        cleanedResponse.indexOf("{"),
+        cleanedResponse.lastIndexOf("}") + 1,
+      );
+
       try {
-        const responseJson = JSON.parse(cleanedResponse);
+        const responseJson = JSON.parse(jsonOnly);
         const command = responseJson.comando;
         updatedData = responseJson.dados;
 
