@@ -52,9 +52,9 @@ function collectFormData() {
   const recursosCheckboxes = document.querySelectorAll(
     'input[name="recursos"]:checked',
   );
-  const recursosSelecionados = Array.from(recursosCheckboxes).map(
-    (cb) => cb.value,
-  );
+  const recursosSelecionados = Array.from(recursosCheckboxes)
+    .map((cb) => cb.value)
+    .join(", ");
 
   formData = {
     // Campos de texto e seleção
@@ -122,7 +122,7 @@ async function sendMessage() {
 
     const data = await response.json();
     const botMessageElement = chatMessages.lastChild;
-    if (botMessageElement.innerText === "Pensando...") {
+    if (botMessageElement.textContent.includes("Pensando")) {
       chatMessages.removeChild(botMessageElement);
     }
 
@@ -181,7 +181,7 @@ userInput.addEventListener("keypress", (e) => {
 
 // Listener para o botão de PDF
 downloadPdfBtn.addEventListener("click", async () => {
-  const htmlContent = planOutput.innerHTML;
+  const htmlContent = planOutput.outerHTML;
 
   try {
     const response = await fetch("/api/gerador-plano-aula/generate-pdf", {
