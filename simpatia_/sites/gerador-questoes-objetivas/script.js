@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.getElementById("logo").src =
-  window.location.origin + "/images/logo-simpatia.png";
-
 function exportPDF() {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF("p", "mm", "a4");
