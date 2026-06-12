@@ -187,6 +187,8 @@ async function sendMessage() {
 
   const data = await response.json();
 
+  const text = await response.text();
+  console.log(text);
   content.innerHTML += `<p style="margin-bottom:10px; color:#444a52;"><b>IA:</b> ${data.response}</p>`;
   content.scrollTop = content.scrollHeight;
 }
@@ -228,6 +230,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const data = await response.json();
+
+        console.log("Resposta da API:", data);
 
         let questions = data.questions || data.data || data;
 
