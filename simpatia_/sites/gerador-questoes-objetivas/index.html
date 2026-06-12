@@ -1,209 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIMPATIA - Gerador de Questões IA</title>
-
+    <link rel="icon" type="image/svg+xml" href="/icons/ialogo.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #0D1B2A;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        color: #0d1b2a;
+      }
     </style>
-</head>
+  </head>
 
-<body style="background-color: #f8f8fc;" class="min-h-screen flex flex-col items-center">
+  <body
+    style="background-color: #f8f8fc"
+    class="min-h-screen flex flex-col items-center"
+  >
+    <header
+      style="background-color: #fefeff; border-bottom: 1px solid #e5e5e5"
+      class="w-full"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center px-6"
+        style="height: 80px"
+      >
+        <img
+          src="/gerador-questoes-objetivas/images/logo-simpatia.png"
+          style="height: 120px; width: auto"
+        />
+      </div>
+    </header>
 
-<header style="background-color: #fefeff; border-bottom: 1px solid #e5e5e5;" class="w-full">
-    <div class="max-w-6xl mx-auto flex items-center px-6" style="height: 80px;">
-        <img src="/images/logo-simpatia.png" style="height: 120px; width: auto;">
-    </div>
-</header>
+    <section class="text-center mt-10 px-6">
+      <div
+        class="w-24 h-24 flex items-center justify-center rounded-lg overflow-hidden mx-auto animate-float"
+      >
+        <img
+          src="/gerador-questoes-objetivas/images/logo-unifenas.png"
+          class="w-full h-full object-contain"
+        />
+      </div>
 
-<section class="text-center mt-10 px-6">
-    <div class="w-24 h-24 flex items-center justify-center rounded-lg overflow-hidden mx-auto animate-float">
-        <img src="/images/logo-unifenas.png" class="w-full h-full object-contain"/>
-    </div>
-
-    <h2 class="mt-4 font-semibold" style="color:#4C4B67; font-size:32px;">
+      <h2 class="mt-4 font-semibold" style="color: #4c4b67; font-size: 32px">
         Gere questões inteligentes
-    </h2>
+      </h2>
 
-    <p class="mt-2 max-w-xl mx-auto font-medium" style="font-size:18px; color:#7A7A99;">
+      <p
+        class="mt-2 max-w-xl mx-auto font-medium"
+        style="font-size: 18px; color: #7a7a99"
+      >
         Use nossa IA avançada para criar questões personalizadas
-    </p>
-</section>
+      </p>
+    </section>
 
-<!-- FORM -->
-<main class="flex-1 flex justify-center items-start mt-12 w-full">
-    <div class="bg-white rounded-lg shadow p-8 w-full max-w-xl border border-blue-100">
-
-        <h3 class="text-center font-semibold mb-6" style="font-size:18px; color:#4C4B67;">
-            ⚙️ Configurações
+    <!-- FORM -->
+    <main class="flex-1 flex justify-center items-start mt-12 w-full">
+      <div
+        class="bg-white rounded-lg shadow p-8 w-full max-w-xl border border-blue-100"
+      >
+        <h3
+          class="text-center font-semibold mb-6"
+          style="font-size: 18px; color: #4c4b67"
+        >
+          ⚙️ Configurações
         </h3>
 
         <div class="space-y-5">
+          <div>
+            <label style="font-size: 16px; font-weight: 500; color: #4c4b67"
+              >Disciplina</label
+            >
+            <input
+              id="theme"
+              placeholder="Disciplina"
+              class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+            />
+          </div>
 
-             <div>
-                <label style="font-size:16px; font-weight:500; color:#4C4B67;">Disciplina</label>
-                <input id="theme" placeholder="Disciplina"
-                   class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"/>
-             </div>
+          <div>
+            <label style="font-size: 16px; font-weight: 500; color: #4c4b67"
+              >Tópico</label
+            >
+            <input
+              id="subject"
+              placeholder="Tópico"
+              class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+            />
+          </div>
 
-            <div>
-                <label style="font-size:16px; font-weight:500; color:#4C4B67;">Tópico</label>
-                <input id="subject" placeholder="Tópico"
-                   class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"/>
-            </div>  
+          <div>
+            <label style="font-size: 16px; font-weight: 500; color: #4c4b67"
+              >Tipo de questão</label
+            >
 
-            <div>
-                <label style="font-size:16px; font-weight:500; color:#4C4B67;">Tipo de questão</label>
+            <select
+              id="typeSelect"
+              class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+            >
+              <option value="multipla">Múltipla Escolha</option>
+              <option value="descritiva">Descritiva</option>
+              <option value="ambas">Ambas</option>
+            </select>
+          </div>
 
-                <select id="typeSelect"
-                        class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200">
-                    <option value="multipla">Múltipla Escolha</option>
-                    <option value="descritiva">Descritiva</option>
-                    <option value="ambas">Ambas</option>
-                </select>
+          <div class="flex space-x-6">
+            <div class="w-1/2">
+              <label style="font-size: 16px; font-weight: 500; color: #4c4b67">
+                Quantidade de Questões
+              </label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                max="50"
+                class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+              />
             </div>
 
-            <div class="flex space-x-6">
-
-                 <div class="w-1/2">
-                    <label style="font-size:16px; font-weight:500; color:#4C4B67;">
-                        Quantidade de Questões
-                    </label>
-                    <input id="quantity" type="number" min="1" max="50"
-                           class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"/>
-                </div>
-
-                <div class="w-1/2" id="alternativasBox">
-                     <label style="font-size:16px; font-weight:500; color:#4C4B67;">
-                        Alternativas por Questão
-                    </label>
-                    <input id="alternatives" type="number" min="2" max="6" value="4"
-                           class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"/>
-                </div>
-
+            <div class="w-1/2" id="alternativasBox">
+              <label style="font-size: 16px; font-weight: 500; color: #4c4b67">
+                Alternativas por Questão
+              </label>
+              <input
+                id="alternatives"
+                type="number"
+                min="2"
+                max="6"
+                value="4"
+                class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+              />
             </div>
+          </div>
 
-             <div>
-                <label style="font-size:16px; font-weight:500; color:#4C4B67;">Dificuldade</label>
+          <div>
+            <label style="font-size: 16px; font-weight: 500; color: #4c4b67"
+              >Dificuldade</label
+            >
 
-                <select id="difficulty"
-                        class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200">
-                    <option value="facil">Básico</option>
-                    <option value="medio">Intermediário</option>
-                    <option value="dificil">Avançado</option>
-                </select>
-            </div>
+            <select
+              id="difficulty"
+              class="w-full mt-1 px-4 h-12 border rounded-md border-blue-200"
+            >
+              <option value="facil">Básico</option>
+              <option value="medio">Intermediário</option>
+              <option value="dificil">Avançado</option>
+            </select>
+          </div>
 
-            <button id="generateBtn"
-                    class="w-full py-3 text-white rounded-md"
-                    style="background-color:#006FFF; font-size:18px;">
-                Gerar Questões
-            </button>
-
+          <button
+            id="generateBtn"
+            class="w-full py-3 text-white rounded-md"
+            style="background-color: #006fff; font-size: 18px"
+          >
+            Gerar Questões
+          </button>
         </div>
+      </div>
+    </main>
+
+    <!-- SEM QUESTÕES -->
+    <div
+      id="emptyState"
+      class="mt-20 mb-12 text-center"
+      style="color: #7a7a99; font-size: 18px"
+    >
+      <p>Não há questões geradas ainda.</p>
     </div>
-</main>
 
-<!-- SEM QUESTÕES -->
-<div id="emptyState"
-     class="mt-20 mb-12 text-center"
-     style="color:#7A7A99; font-size:18px;">
-    <p>Não há questões geradas ainda.</p>
-</div>
-
-<!-- RESULTADOS -->
-<div id="resultsSection" class="hidden w-full max-w-3xl mx-auto mt-20 pb-20">
-
-    <!-- HEADER DAS QUESTÕES -->
-    <div class="flex items-center justify-between mb-6">
-
+    <!-- RESULTADOS -->
+    <div
+      id="resultsSection"
+      class="hidden w-full max-w-3xl mx-auto mt-20 pb-20"
+    >
+      <!-- HEADER DAS QUESTÕES -->
+      <div class="flex items-center justify-between mb-6">
         <h2 class="text-[16px] text-[#4C4B67] font-medium">
-            Questões Geradas (<span id="qtdQuestoes">0</span>)
+          Questões Geradas (<span id="qtdQuestoes">0</span>)
         </h2>
 
         <div id="exportButtons" class="hidden flex gap-2">
+          <button
+            onclick="exportPDF()"
+            class="px-4 py-2 text-white rounded-md text-sm font-medium"
+            style="background: #006fff"
+          >
+            📄 Exportar PDF
+          </button>
 
-            <button onclick="exportPDF()"
-                    class="px-4 py-2 text-white rounded-md text-sm font-medium"
-                    style="background:#006FFF;">
-                📄 Exportar PDF
-            </button>
-
-            <button onclick="exportGIFT()"
-                    class="px-4 py-2 text-white rounded-md text-sm font-medium"
-                    style="background:#006FFF;">
-                📝 Exportar GIFT
-            </button>
-
+          <button
+            onclick="exportGIFT()"
+            class="px-4 py-2 text-white rounded-md text-sm font-medium"
+            style="background: #006fff"
+          >
+            📝 Exportar GIFT
+          </button>
         </div>
+      </div>
 
+      <!-- QUESTÕES -->
+      <div id="questionsContainer" class="space-y-6"></div>
     </div>
 
-    <!-- QUESTÕES -->
-    <div id="questionsContainer" class="space-y-6"></div>
+    <!-- CHAT -->
+    <div
+      id="chat-button"
+      onclick="toggleChat()"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #006fff;
+        color: white;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+      "
+    >
+      💬
+    </div>
 
-</div>
-
-<!-- CHAT -->
-<div id="chat-button" onclick="toggleChat()" style="position: fixed;
-    bottom: 20px; right: 20px; background: #006FFF;
-    color: white; width: 60px; height: 60px; display: flex;
-    align-items: center; justify-content: center; cursor: pointer;
-    border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 9999;">
-    💬
-</div>
-
-<div id="chat-window" style="display: none; position: fixed; bottom: 90px;
-    right: 20px; width: 450px; height: 500px; background: white;
-    border: 1px solid #ddd; border-radius: 10px; flex-direction: column;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 9999;">
-
-    <div style="background: #006FFF; color: white; padding: 15px;
-        border-radius: 10px 10px 0 0; font-weight: bold;">
+    <div
+      id="chat-window"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 450px;
+        height: 500px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        flex-direction: column;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+      "
+    >
+      <div
+        style="
+          background: #006fff;
+          color: white;
+          padding: 15px;
+          border-radius: 10px 10px 0 0;
+          font-weight: bold;
+        "
+      >
         Especialista SIMPATIA
-    </div>
+      </div>
 
-    <div id="chat-content" style="flex: 1; padding: 25px; overflow-y: auto;
-        font-size: 17px; color: #292626;">
+      <div
+        id="chat-content"
+        style="
+          flex: 1;
+          padding: 25px;
+          overflow-y: auto;
+          font-size: 17px;
+          color: #292626;
+        "
+      >
         <p>Olá! Sou o Especialista SIMPATIA. Como posso ajudar?</p>
-    </div>
+      </div>
 
-    <div style="padding: 10px; border-top: 1px solid #eee; display: flex;">
-        <input type="text" id="chat-input" placeholder="Digite sua dúvida..."
-               style="flex: 1; border: 1px solid #ddd; border-radius: 5px;
-               padding: 5px 10px; outline: none;">
+      <div style="padding: 10px; border-top: 1px solid #eee; display: flex">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Digite sua dúvida..."
+          style="
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+            outline: none;
+          "
+        />
 
-        <button onclick="sendMessage()"
-                style="margin-left: 5px; background: #006FFF; color: white;
-                border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
-            Enviar
+        <button
+          onclick="sendMessage()"
+          style="
+            margin-left: 5px;
+            background: #006fff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Enviar
         </button>
+      </div>
     </div>
-</div>
 
-<footer style="background:#fefeff; border-top:1px solid #e5e5e5;"
-        class="w-full mt-12 py-4 text-center text-sm">
+    <footer
+      style="background: #fefeff; border-top: 1px solid #e5e5e5"
+      class="w-full mt-12 py-4 text-center text-sm"
+    >
+      <p style="color: #7a7a99">
+        <strong style="color: #4c4b67">SIMPATIA</strong> | © 2025 Todos os
+        direitos reservados.
+      </p>
+    </footer>
 
-    <p style="color:#7A7A99;">
-        <strong style="color:#4C4B67;">SIMPATIA</strong> | © 2025 Todos os direitos reservados.
-    </p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="script.js"></script>
-
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
