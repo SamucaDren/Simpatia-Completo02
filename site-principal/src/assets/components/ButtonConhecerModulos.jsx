@@ -1,8 +1,8 @@
 import "./ButtonConhecerModulos.css";
 import { Link } from "react-router-dom";
-function ButtonConhecerModulos({ texto, mostrarIcone = false }) {
+function ButtonConhecerModulos({ texto, mostrarIcone = false, link }) {
   return (
-    <Link className="button-conhecer" to="/aluno">
+    <Link className="button-conhecer" to={link}>
       <span>{texto}</span>
       {mostrarIcone && (
         <svg

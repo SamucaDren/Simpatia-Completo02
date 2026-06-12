@@ -164,7 +164,17 @@ function Descubra() {
           </button>
         </div>
       </div>
-      <ButtonConhecerModulos texto="Ver todos os módulos" mostrarIcone={true} />
+      <ButtonConhecerModulos
+        texto="Ver todos os módulos"
+        mostrarIcone={true}
+        link={
+          categoriaSelecionada === "Professor"
+            ? "/professor/"
+            : categoriaSelecionada === "Aluno"
+              ? "/aluno/"
+              : "/aluno/"
+        }
+      />
     </div>
   );
 }
