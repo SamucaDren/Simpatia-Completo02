@@ -1,5 +1,10 @@
 const express = require("express");
 require("dotenv").config();
+const OpenAI = require("openai");
+const groq = new OpenAI({
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
+});
 
 const SIMPATIA_KNOWLEDGE = `
 Você é o assistente de ajuda do SIMPATIA, um sistema de geração de Planos de Aula 
@@ -180,7 +185,7 @@ R: A interface é responsiva. Em telas menores, os painéis se reorganizam verti
 
 const router = express.Router();
 
-router.post("/api/tutorial", async (req, res) => {
+router.post("/", async (req, res) => {
   const { question } = req.body;
 
   if (!question || question.trim().length === 0) {
