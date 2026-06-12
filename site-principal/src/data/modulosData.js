@@ -3,7 +3,7 @@ const MODULOS_DATA = {
     {
       titulo: "Gerador de questões Objetivas",
       descricao: "Gere questões por disciplina, tópico e dificuldade.",
-      link: "https://unifenas.br",
+      link: "/gerador-questoes-objetivas/",
       id: "p1",
     },
     {

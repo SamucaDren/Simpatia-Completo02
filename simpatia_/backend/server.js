@@ -42,6 +42,16 @@ app.get("/api", (req, res) => {
   res.send("<h1>Servidor rodando com ExpressJS</h1>");
 });
 
+//GERADOR DE QUESTÕES OBJETIVAS
+app.use(
+  "/api/gerador-questoes-objetivas/chat",
+  require("./routes/gerador-questoes-objetivas/chat"),
+);
+app.use(
+  "/api/gerador-questoes-objetivas/questions",
+  require("./routes/gerador-questoes-objetivas/questions"),
+);
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
