@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const service = require("../services/gerador-questoes-objetivas/geminiService");
+const service = require("../../services/gerador-questoes-objetivas/geminiService");
 
 router.post("/ask", async (req, res) => {
   try {
