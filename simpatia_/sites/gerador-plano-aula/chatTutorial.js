@@ -173,7 +173,7 @@
     showTyping();
 
     try {
-      const response = await fetch("/api/gerador-plano-aula/tutorial", {
+      const response = await fetch("/api/gerador-plano-aula/tutorial/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),

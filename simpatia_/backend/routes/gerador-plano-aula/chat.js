@@ -1,6 +1,11 @@
 const express = require("express");
 require("dotenv").config();
 
+const groq = new OpenAI({
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
+});
+
 const METODOLOGIAS_MAP = [
   { display: "Exposição Dialogada", payload: "Exposição Dialogada" },
   { display: "Trabalho de grupo", payload: "Trabalho de Grupo" },
