@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         const response = await fetch(
-          "/api/gerador-questoes-objetivas/questions",
+          "/api/gerador-questoes-objetivas/questions/generate",
           {
             method: "POST",
             headers: {
