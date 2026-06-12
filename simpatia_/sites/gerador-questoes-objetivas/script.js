@@ -181,7 +181,10 @@ async function sendMessage() {
     body: JSON.stringify({ message: message }),
   });
 
-  const data = await response.json();
+  //const data = await response.json();
+
+  const text = await response.text();
+  console.log(text);
   content.innerHTML += `<p style="margin-bottom:10px; color:#444a52;"><b>IA:</b> ${data.response}</p>`;
   content.scrollTop = content.scrollHeight;
 }
