@@ -56,6 +56,12 @@ const MODULOS_DATA = {
       link: "https://simpatia.wuaze.com",
       id: "a5",
     },
+    {
+      titulo: "Quiz Simpatia",
+      descricao: "Gere perguntas para os seus alunos",
+      link: "/quiz-simpatia/",
+      id: "a6",
+    },
   ],
 };
 
