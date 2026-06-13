@@ -15,8 +15,6 @@ export default function App() {
         <Route path="/resultado" element={<Resultado />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/revisao/:id" element={<Revisao />} />
-
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
