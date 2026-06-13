@@ -1,43 +1,44 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
-import Header from '../components/Header';
-import ChatWidget from '../components/ChatWidget';
-import './Home.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+import Header from "../components/Header";
+import ChatWidget from "../components/ChatWidget";
+import "./Home.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const [tema, setTema]       = useState('');
-  const [quantidade, setQtd]  = useState('');
-  const [nivel, setNivel]     = useState('medio');
-  const [erro, setErro]       = useState('');
+  const [tema, setTema] = useState("");
+  const [quantidade, setQtd] = useState("");
+  const [nivel, setNivel] = useState("medio");
+  const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setErro('');
+    setErro("");
 
     if (!tema.trim()) {
-      setErro('Informe o tema ou matéria para gerar o quiz.');
+      setErro("Informe o tema ou matéria para gerar o quiz.");
       return;
     }
 
     const n = parseInt(quantidade);
     if (!quantidade || isNaN(n) || n < 1 || n > 20) {
-      setErro('Informe um número inteiro entre 1 e 20.');
+      setErro("Informe um número inteiro entre 1 e 20.");
       return;
     }
 
     setLoading(true);
     try {
-      const { data } = await api.post('/quiz/gerar', {
+      const { data } = await api.post("/quiz/gerar", {
         tema: tema.trim(),
         quantidade: n,
         nivel,
       });
-      navigate('/quiz', { state: data });
+      navigate("/quiz", { state: data });
     } catch (err) {
-      setErro(err.response?.data?.erro || 'Erro ao gerar questões.');
+      setErro(err.response?.data?.erro || "Erro ao gerar questões.");
     } finally {
       setLoading(false);
     }
@@ -49,14 +50,39 @@ export default function Home() {
 
       <div className="home-hero">
         <div className="home-hero__inner">
-          <img src="/frase1.png" alt="" className="home-hero__frase"
-            onError={e => { e.target.style.display = 'none'; }} />
-          <img src="/logo-bola.png" alt="" className="home-hero__bola"
-            onError={e => { e.target.style.display = 'none'; }} />
-<img src="/homem.png" alt="" className="home-hero__homem"
-            onError={e => { e.target.style.display = 'none'; }} />
-          <img src="/fundo-azul.png" alt="" className="home-hero__fundo"
-            onError={e => { e.target.style.display = 'none'; }} />
+          <img
+            src={`${import.meta.env.BASE_URL}frase1.png`}
+            alt=""
+            className="home-hero__frase"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+
+          <img
+            src={`${import.meta.env.BASE_URL}logo-bola.png`}
+            alt=""
+            className="home-hero__bola"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <img
+            src={`${import.meta.env.BASE_URL}homem.png`}
+            alt=""
+            className="home-hero__homem"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <img
+            src={`${import.meta.env.BASE_URL}fundo-azul.png`}
+            alt=""
+            className="home-hero__fundo"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
         </div>
       </div>
 
@@ -68,7 +94,10 @@ export default function Home() {
               id="tema"
               type="text"
               value={tema}
-              onChange={e => { setTema(e.target.value); setErro(''); }}
+              onChange={(e) => {
+                setTema(e.target.value);
+                setErro("");
+              }}
               placeholder="Ex: Cálculo Diferencial, Algoritmos, História do Brasil…"
               required
             />
@@ -76,7 +105,11 @@ export default function Home() {
 
           <div className="home-field">
             <label htmlFor="nivel">Nível de dificuldade:</label>
-            <select id="nivel" value={nivel} onChange={e => setNivel(e.target.value)}>
+            <select
+              id="nivel"
+              value={nivel}
+              onChange={(e) => setNivel(e.target.value)}
+            >
               <option value="fundamental">Fundamental</option>
               <option value="medio">Médio</option>
               <option value="superior">Superior (Graduação)</option>
@@ -94,7 +127,10 @@ export default function Home() {
               inputMode="numeric"
               placeholder="1 a 20"
               value={quantidade}
-              onChange={e => { setQtd(e.target.value); setErro(''); }}
+              onChange={(e) => {
+                setQtd(e.target.value);
+                setErro("");
+              }}
               required
             />
           </div>
@@ -102,12 +138,23 @@ export default function Home() {
           {erro && <p className="home-erro">{erro}</p>}
 
           <div className="home-actions">
-            <button type="submit" className="home-btn-primary" disabled={loading}>
-              {loading
-                ? <><span className="spinner" />Gerando questões…</>
-                : 'Gerar Questões'}
+            <button
+              type="submit"
+              className="home-btn-primary"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className="spinner" />
+                  Gerando questões…
+                </>
+              ) : (
+                "Gerar Questões"
+              )}
             </button>
-            <a href="/dashboard" className="home-btn-stats">Ver Estatísticas</a>
+            <Link to="/dashboard" className="home-btn-stats">
+              Ver Estatísticas
+            </Link>
           </div>
         </form>
       </div>

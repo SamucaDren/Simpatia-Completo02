@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
@@ -8,7 +8,7 @@ import Revisao from "./pages/Revisao";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/quiz-simpatia">
+    <BrowserRouter basename="/quiz-simpatia/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
