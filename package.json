@@ -10,7 +10,8 @@
     "build-gerador-de-plano": "node builds/gerador-de-plano.js",
     "build-gerador-de-questoes-descritivas": "node builds/gerador-de-questoes-descritivas.js",
     "build-oratoria-ai": "node builds/oratoria-ai.js",
-    "build-simpatico": "node builds/simpatico.js"
+    "build-simpatico": "node builds/simpatico.js",
+    "build-quiz-simpatia": "node builds/quiz-simpatia.js"
   },
   "keywords": [],
   "author": "",

@@ -31,7 +31,7 @@ export default function Home() {
 
     setLoading(true);
     try {
-      const { data } = await api.post("/quiz/gerar", {
+      const { data } = await api.post("/quiz-simpatia/quiz", {
         tema: tema.trim(),
         quantidade: n,
         nivel,

@@ -2,8 +2,8 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const modulo_name = "Site Principal";
-const dir_projeto = "site-principal";
+const modulo_name = "Quiz Simpatia";
+const dir_projeto = "quiz-simpatia";
 const out_diretory = "dist";
 const build_comand = "npm run build";
 

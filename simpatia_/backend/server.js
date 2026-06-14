@@ -69,6 +69,9 @@ app.use(
   require("./routes/gerador-plano-aula/tutorial"),
 );
 
+//QUIZ SIMPATIA
+app.use("/api/quiz-simpatia/quiz", require("./routes/quiz-simpatia/quiz"));
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
