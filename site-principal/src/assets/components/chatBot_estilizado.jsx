@@ -1,8 +1,5 @@
 import { useState } from "react";
 import styles from "./chatBot_estilizado.module.css";
-import MODULOS_DATA from "../../data/modulosData";
-import FAQ from "../../data/FacData";
-import KEYWORDS from "../../data/KeywordsData";
 
 function ChatBotStylized() {
   const [open, setOpen] = useState(false);
@@ -10,40 +7,44 @@ function ChatBotStylized() {
     { text: "Olá! Como posso ajudar?", from: "bot" },
   ]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleSend() {
-    if (!input.trim()) return;
+  async function handleSend() {
+    const texto = input.trim();
+    if (!texto || loading) return;
 
-    const userMsg = { text: input, from: "user" };
-    const botMsg = { text: getResponse(input), from: "bot" };
-
-    setMessages([...messages, userMsg, botMsg]);
+    const userMsg = { text: texto, from: "user" };
+    setMessages((prev) => [...prev, userMsg]);
     setInput("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/chatbot-geral/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mensagem: texto }),
+      });
+
+      const data = await response.json();
+      const botText =
+        data.resposta || "Não consegui processar sua mensagem. Tente novamente.";
+
+      setMessages((prev) => [...prev, { text: botText, from: "bot" }]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Erro de conexão. Verifique sua internet e tente novamente.",
+          from: "bot",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   }
 
-  function getResponse(text) {
-    const lower = text.toLowerCase();
-
-    //EXIBE AS RESPOSTA COM BASE NAS PALAVRAS
-    const faq = FAQ.find((f) => f.keywords.some((k) => lower.includes(k)));
-    if (faq) return faq.answer;
-
-    //TENTA ACHAR UM MODULO COM BASE NAS PALAVRAS TAMBEM SE ACHAR MOSTRA O NOME DESSE MODULOS
-    const match = KEYWORDS.find((k) =>
-      k.keywords.some((word) => lower.includes(word)),
-    );
-
-    const todosModulos = Object.values(MODULOS_DATA).flat();
-
-    if (match) {
-      const modulo = todosModulos.find((m) => m.id === match.moduloId);
-
-      return modulo
-        ? `Achei o módulo: ${modulo.titulo}`
-        : "Módulo não encontrado.";
-    }
-
-    return "Não entendi 😅 tente outra pergunta.";
+  function handleKeyDown(e) {
+    if (e.key === "Enter") handleSend();
   }
 
   return (
@@ -111,8 +112,8 @@ function ChatBotStylized() {
                 y2="104"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0166FF" />
-                <stop offset="1" stop-color="#8059C9" />
+                <stop stopColor="#0166FF" />
+                <stop offset="1" stopColor="#8059C9" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_1563_2139"
@@ -122,8 +123,8 @@ function ChatBotStylized() {
                 y2="111.829"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#78A8FF" />
-                <stop offset="1" stop-color="#9579C8" />
+                <stop stopColor="#78A8FF" />
+                <stop offset="1" stopColor="#9579C8" />
               </linearGradient>
               <linearGradient
                 id="paint2_linear_1563_2139"
@@ -133,8 +134,8 @@ function ChatBotStylized() {
                 y2="43.4561"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="1" stop-color="#CAAFFC" />
+                <stop stopColor="white" />
+                <stop offset="1" stopColor="#CAAFFC" />
               </linearGradient>
               <linearGradient
                 id="paint3_linear_1563_2139"
@@ -144,8 +145,8 @@ function ChatBotStylized() {
                 y2="43.4563"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="1" stop-color="#CAAFFC" />
+                <stop stopColor="white" />
+                <stop offset="1" stopColor="#CAAFFC" />
               </linearGradient>
               <linearGradient
                 id="paint4_linear_1563_2139"
@@ -155,8 +156,8 @@ function ChatBotStylized() {
                 y2="77.3142"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="1" stop-color="#CAAFFC" />
+                <stop stopColor="white" />
+                <stop offset="1" stopColor="#CAAFFC" />
               </linearGradient>
             </defs>
           </svg>
@@ -166,7 +167,7 @@ function ChatBotStylized() {
       {open && (
         <div className={styles.chatbot_box}>
           <div className={styles.chatbot_header}>
-            Ficou com alguma dúvida
+            Ficou com alguma dúvida?
             <button onClick={() => setOpen(false)}>X</button>
           </div>
 
@@ -176,19 +177,27 @@ function ChatBotStylized() {
                 {msg.text}
               </div>
             ))}
+            {loading && (
+              <div className="bot">Digitando...</div>
+            )}
           </div>
 
           <div className={styles.chatbot_input}>
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Faça uma pergunta..."
+              disabled={loading}
             />
-            <button onClick={handleSend}>Enviar</button>
+            <button onClick={handleSend} disabled={loading}>
+              Enviar
+            </button>
           </div>
         </div>
       )}
     </div>
   );
 }
+
 export default ChatBotStylized;
