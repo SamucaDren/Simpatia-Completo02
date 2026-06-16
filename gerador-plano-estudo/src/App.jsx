@@ -1,15 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ModulesSection from './components/ModulesSection';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-import StudyPlanGenerator from './components/StudyPlanGenerator';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import ModulesSection from "./components/ModulesSection";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
+import StudyPlanGenerator from "./components/StudyPlanGenerator";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/gerador-plano-estudo">
       <div className="font-sans text-neutral-900">
         <Header />
         <main>
