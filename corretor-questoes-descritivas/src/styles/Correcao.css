@@ -1,0 +1,511 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.correcao-page {
+  min-height: 100vh;
+
+  background: #f5f7fb;
+
+  font-family: "Poppins", sans-serif;
+
+  padding: 30px 20px 60px;
+}
+
+.chatbot-container {
+  position: fixed !important;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  border: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section {
+
+  text-align: center;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 40px 20px 20px;
+}
+
+.badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background: #dbeafe;
+
+  color: #2563eb;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 24px;
+}
+
+.titulo {
+
+  font-size: 48px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+  line-height: 1.1;
+
+  margin-bottom: 18px;
+}
+
+.subtitulo {
+
+  font-size: 18px;
+
+  line-height: 1.6;
+
+  color: #6b7280;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.correcao-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+
+  align-items: start;
+
+  max-width: 1400px;
+
+  margin: 40px auto 0;
+
+  padding: 20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.container-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 32px;
+
+  border: 1px solid #eef2f7;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title {
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+
+  color: #6b7280;
+
+  font-size: 15px;
+
+  margin-bottom: 30px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 24px;
+}
+
+.form-group label {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #111827;
+
+  margin-bottom: 10px;
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+
+.form-group textarea {
+
+  width: 100%;
+
+  min-height: 140px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 16px;
+
+  padding: 16px;
+
+  background: #fafafa;
+
+  font-size: 15px;
+
+  font-family: inherit;
+
+  line-height: 1.5;
+
+  resize: vertical;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group textarea:focus {
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea::placeholder {
+
+  color: #9ca3af;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-group {
+
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 10px;
+}
+
+.btn-primary {
+
+  flex: 1;
+
+  border: none;
+
+  border-radius: 16px;
+
+  padding: 16px;
+
+  background:
+    linear-gradient(135deg,
+      #9333ea,
+      #2563eb);
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 10px 20px rgba(37, 99, 235, 0.15);
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  box-shadow:
+    0 14px 28px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:active {
+
+  transform: scale(0.98);
+}
+
+/* =========================
+   RESULTADO IA
+========================= */
+
+.resultado-ia textarea {
+
+  background: #f9fafb;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1000px) {
+
+  .correcao-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .titulo {
+
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .correcao-page {
+
+    padding: 20px 14px 50px;
+  }
+
+  .container-card {
+
+    padding: 24px;
+  }
+
+  .titulo {
+
+    font-size: 30px;
+  }
+
+  .subtitulo {
+
+    font-size: 16px;
+  }
+
+  .button-group {
+
+    flex-direction: column;
+  }
+
+  .btn-primary {
+
+    width: 100%;
+  }
+}
+
+/* =========================================
+   ESTILOS DE TELA PRINCIPAL (WEB)
+========================================= */
+.relatorio-cabecalho-oficial {
+  display: none; /* Oculto na navegação normal do site */
+}
+
+.btn-exportar {
+  background-color: #4a3aff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-exportar:hover {
+  background-color: #3a2aee;
+}
+
+.relatorio-impressao {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.relatorio-secao {
+  margin-bottom: 25px;
+}
+
+.relatorio-secao h3 {
+  color: #4a3aff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.relatorio-rodape-nota {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+
+.nota-bloco {
+  background-color: #f4f3ff;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #4a3aff;
+}
+
+.nota-bloco strong {
+  font-size: 18px;
+  color: #4a3aff;
+  display: block;
+  margin-top: 5px;
+}
+
+.assinatura-professor {
+  display: none; /* Oculto na tela do computador */
+}
+
+
+/* =========================================
+   REGRAS DE IMPRESSÃO (GERAÇÃO DE PDF)
+========================================= */
+@media print {
+  /* 1. Esconder elementos globais da interface que não devem sair no papel */
+  .navbar,
+  .sidebar,
+  .acoes-resultado,
+  .chatbot-container,
+  .chatbot-modal,
+  .chatbot-fab,
+  footer {
+    display: none !important;
+  }
+
+  /* 2. Resetar o corpo da página para usar o máximo do espaço da folha A4 */
+  body, 
+  .main-content, 
+  .resultado-container {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  /* 3. Tornar os elementos de relatório oficiais visíveis no documento */
+  .relatorio-cabecalho-oficial {
+    display: block !important;
+    margin-bottom: 30px;
+  }
+
+  .relatorio-cabecalho-oficial h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0 0 5px 0;
+  }
+
+  .relatorio-cabecalho-oficial p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+  }
+
+  .assinatura-professor {
+    display: block !important;
+    text-align: center;
+    width: 250px;
+  }
+
+  .linha-assinatura {
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .assinatura-professor p {
+    font-size: 11px;
+    margin: 0;
+    color: #333;
+  }
+
+  /* 4. Ajustes de tipografia e quebras de página para o PDF */
+  .relatorio-impressao {
+    padding: 0 !important;
+  }
+
+  .relatorio-secao h3 {
+    color: #000 !important; /* Cor preta para economizar tinta e manter a formalidade */
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+  }
+
+  .relatorio-secao p, 
+  .conteudo-feedback {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #222;
+  }
+
+  /* Evita que uma secção mude de página de forma cortada a meio se puder ser evitado */
+  .relatorio-secao {
+    page-break-inside: avoid;
+  }
+
+  .nota-bloco {
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    padding: 10px !important;
+  }
+
+  .nota-bloco strong {
+    color: #000 !important;
+  }
+}

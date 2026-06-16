@@ -62,8 +62,8 @@ const FEATURES = [
       links: {
         descricao: "Repositório do projeto e instituição parceira.",
         links: [
-          "https://github.com/clintonsilvas/Simpatia",
-          "https://www.unifenas.br",
+          "https://github.com/SamucaDren/Simpatia-Completo02",
+          "https://www.simpatia.unifenas.br",
         ],
       },
 
@@ -127,7 +127,7 @@ const FEATURES = [
       "gerador de questões objetivas, geração de questões com inteligência artificial, questões de múltipla escolha, exercícios personalizados, criação automática de avaliações, ferramentas para professores, educação digital, tecnologia educacional, inteligência artificial na educação, simulados automáticos, banco de questões, questões para provas, revisão de conteúdo, aprendizagem personalizada, spring boot, java, desenvolvimento educacional, projeto unifenas, plataforma simpatia, geração de exercícios, avaliação acadêmica, ensino superior, inovação educacional",
   },
   {
-    titulo: "Gerador de Questões Descritivas",
+    titulo: "Corretor de Questões Descritivas",
     data: "OUTUBRO DE 2025",
     descricao:
       "O módulo resolve a dificuldade dos professores em gerar e revisar prompts de forma manual e demorada. Ele automatiza todo o fluxo entre as duas etapas da IA, oferecendo mais rapidez e praticidade na criação de questões e correções.",

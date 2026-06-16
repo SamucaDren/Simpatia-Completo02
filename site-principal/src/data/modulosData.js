@@ -24,6 +24,12 @@ const MODULOS_DATA = {
       link: "/gerador-plano-aula/",
       id: "p4",
     },
+    {
+      titulo: "Corretor de Questões Descritivas",
+      descricao: "Corrija perguntas descritivas de forma fácil.",
+      link: "/corretor-questoes-descritivas/",
+      id: "p5",
+    },
   ],
   aluno: [
     {

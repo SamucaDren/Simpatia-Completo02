@@ -2,9 +2,10 @@ require("dotenv").config();
 
 const express = require("express");
 const OpenAI = require("openai");
+const cors = require("cors");
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.post("/api/chat", async (req, res) => {
@@ -82,6 +83,13 @@ app.use(
   "/api/gerador-plano-estudo",
   require("./routes/gerador-plano-estudo/study-plan.js"),
 );
+
+//CORRETOR QUESTOES DESCRITIVAS
+app.use(
+  "/api/corretor-questoes-descritivas",
+  require("./routes/corretor-questoes-descritivas/server.js"),
+);
+
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
