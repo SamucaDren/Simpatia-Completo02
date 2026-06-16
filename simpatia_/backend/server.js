@@ -77,6 +77,12 @@ app.use("/api/quiz-simpatia/chat", require("./routes/quiz-simpatia/chat"));
 //CHATBOT
 app.use("/api/chatbot-geral/chat", require("./routes/chatbot-geral/chat"));
 
+//GERADOR DE PLANO DE ESTUDO
+app.use(
+  "/api/gerador-plano-estudo",
+  require("./routes/gerador-plano-estudo/study-plan.js"),
+);
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
