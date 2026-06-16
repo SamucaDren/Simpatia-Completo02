@@ -74,6 +74,9 @@ app.use("/api/quiz-simpatia/quiz", require("./routes/quiz-simpatia/quiz"));
 
 app.use("/api/quiz-simpatia/chat", require("./routes/quiz-simpatia/chat"));
 
+//CHATBOT
+app.use("/api/chatbot-geral/chat", require("./routes/chatbot-geral/chat"));
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
