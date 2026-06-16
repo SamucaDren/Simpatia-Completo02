@@ -4,7 +4,10 @@ import styles from "./chatBot_estilizado.module.css";
 function ChatBotStylized() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Olá! Como posso ajudar?", from: "bot" },
+    {
+      text: "Olá, sou o Simpatinho o ChatBot do Simpatia!" +
+        " Te ajudo a encontrar o módulo certo. O que você está procurando?", from: "bot"
+    },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -173,7 +176,14 @@ function ChatBotStylized() {
 
           <div className={styles.chatbot_messages}>
             {messages.map((msg, i) => (
-              <div key={i} className={msg.from}>
+              <div
+                key={i}
+                className={
+                  msg.from === "user"
+                    ? styles.user
+                    : styles.bot
+                }
+              >
                 {msg.text}
               </div>
             ))}
