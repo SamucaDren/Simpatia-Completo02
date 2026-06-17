@@ -2,26 +2,112 @@
 
 ## Pré-requisitos
 
-Antes de executar o projeto, você precisará:
+Antes de executar o projeto, certifique-se de possuir:
 
-- Ter o Docker instalado em sua máquina.
-- Criar uma conta no Groq.
+- Docker instalado e configurado.
+- Uma conta no Groq para utilização da API de IA.
+
+---
 
 ## Configuração da API do Groq
 
-1. Acesse o site do Groq e crie uma conta:
+### 1. Criar uma conta no Groq
 
-   https://groq.com/
+Acesse:
 
-2. Gere uma chave de API no painel:
+https://groq.com/
 
-   https://console.groq.com/keys
+e crie sua conta.
 
-3. No projeto, navegue até o diretório:
+### 2. Gerar uma chave de API
 
-4. Crie um arquivo chamado `.env`.
+Após criar a conta, acesse:
 
-5. Adicione a seguinte variável:
+https://console.groq.com/keys
+
+e gere uma nova chave de API.
+
+### 3. Configurar a variável de ambiente
+
+Navegue até o diretório:
+
+```text
+Simpatia-Completo02/simpatia_/backend/
+```
+
+Crie um arquivo chamado `.env` e adicione o seguinte conteúdo:
 
 ```env
 GROQ_API_KEY=sua-chave-api-do-groq
+```
+
+Substitua `sua-chave-api-do-groq` pela chave gerada no painel do Groq.
+
+---
+
+## Build da Aplicação
+
+Abra um terminal e navegue até:
+
+```bash
+cd Simpatia-Completo02/simpatia_
+```
+
+Execute o comando abaixo para gerar a imagem Docker:
+
+```bash
+docker build -t simpatia .
+```
+
+Aguarde a conclusão do processo.
+
+---
+
+## Executando a Aplicação
+
+Após o build, execute:
+
+```bash
+docker run -p 3000:3000 simpatia
+```
+
+Caso a aplicação utilize uma porta diferente, ajuste o mapeamento conforme necessário.
+
+---
+
+## Estrutura Esperada
+
+```text
+Simpatia-Completo02/
+└── simpatia_/
+    ├── backend/
+    │   └── .env
+    ├── frontend/
+    └── Dockerfile
+```
+
+---
+
+## Resumo Rápido
+
+1. Criar conta em https://groq.com/
+2. Gerar chave em https://console.groq.com/keys
+3. Criar o arquivo:
+
+```text
+Simpatia-Completo02/simpatia_/backend/.env
+```
+
+4. Adicionar:
+
+```env
+GROQ_API_KEY=sua-chave-api-do-groq
+```
+
+5. Executar:
+
+```bash
+cd Simpatia-Completo02/simpatia_
+docker build -t simpatia .
+docker run -p 3000:3000 simpatia
+```
