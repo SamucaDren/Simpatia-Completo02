@@ -4,13 +4,13 @@ import {
   Autocomplete,
   Button,
   FormControl,
+  Grid,
   TextField,
   Typography,
   Box,
   Paper,
   InputAdornment,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
 import { useCourse } from "@/lib/context/useCourse";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
@@ -160,13 +160,13 @@ export const DisciplineForm = () => {
 
           <FormControl fullWidth>
             <Grid container direction="column" spacing={3}>
-              <Grid size={12}>
+              <Grid>
                 <Autocomplete
                   fullWidth
                   disablePortal
                   options={nomesDosCursos}
                   value={selectedCourse}
-                  onChange={(_, novoCurso) => {
+                  onChange={(_, novoCurso ) => {
                     setSelectedCourse(novoCurso);
                     setSelectedDiscipline(null);
                   }}
@@ -187,7 +187,7 @@ export const DisciplineForm = () => {
                 />
               </Grid>
 
-              <Grid size={12}>
+              <Grid>
                 <Autocomplete
                   fullWidth
                   disablePortal
@@ -217,7 +217,7 @@ export const DisciplineForm = () => {
                 />
               </Grid>
 
-              <Grid size={12}>
+              <Grid sx={{ mt: 2 }}>
                 <Button
                   fullWidth
                   type="submit"
