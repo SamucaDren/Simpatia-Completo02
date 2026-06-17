@@ -45,9 +45,9 @@ const MODULOS_DATA = {
       id: "a3",
     },
     {
-      titulo: "Simpático-Oratoria",
+      titulo: "Oratória",
       descricao: "Estude com IA",
-      link: "/simpatico/",
+      link: "/oratoria/",
       id: "a4",
     },
     {
