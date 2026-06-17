@@ -41,57 +41,7 @@ router.post('/corrigir', async (req, res) => {
         return res.status(500).json({ error: "Erro interno do servidor." });
     }
 });
-// rota para analisar a imagem enviada
-router.post('/analisar-imagem', upload.single('imagem'), async (req, res) =>{
-    try{
-        if(!req.file){
-            return res.status(400).json({error: "Nenhum imagem enviada"});
-        }
 
-        const arquivo = {
-            inlineData: {
-                data: req.file.buffer.toString('base64'),
-                mimeType: req.file.mimetype,
-            },
-        };
-
-       // O prompt que instrui a IA (inclusive sobre texto manuscrito)
-        const prompt = `
-            Você é um especialista em OCR (Reconhecimento Óptico de Caracteres).
-            Analise a imagem em anexo (que pode ser uma foto de prova).
-            O texto na imagem pode ser digitado ou MANUSCRITO. Transcreva ambos.
-            
-            Sua tarefa é identificar e extrair dois blocos de texto:
-            1.  O texto da "Questão".
-            2.  O texto da "Resposta" do aluno.
-            
-            Ignore qualquer outro texto (nome, data, etc).
-            
-            Retorne o resultado estritamente no seguinte formato JSON:
-            {
-              "pergunta": "O texto completo da pergunta que você transcreveu.",
-              "resposta": "O texto completo da resposta do aluno que você transcreveu."
-            }
-        `;
-
-        const model = genAI.getGenerativeModel({ model: "llama-3.3-70b-versatile" });
-
-        const result = await model.generateContent([prompt, arquivo]);
-        const response = await result.response;
-
-        let jsonResponse = response.text()
-        .replace(/```json/g, '')
-        .replace(/```/g, '')
-        .trim();
-
-        const data = JSON.parse(jsonResponse);
-        res.json(data);
-
-    }catch(error){
-        console.error("Erro ao analisar a imagem:", error);
-        res.status(500).json({error: "Erro ao analisar a imagem."});
-    }
-})
 
 // Rota do Agente de Suporte (Chatbot)
 router.post('/chat-suporte', async (req, res) => {
