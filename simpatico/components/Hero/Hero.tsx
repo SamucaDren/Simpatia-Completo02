@@ -14,7 +14,7 @@ const imageItems = [
   },
 ];
 
-export const Hero = () => {
+export const Hero = ( ) => {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -49,7 +49,7 @@ export const Hero = () => {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
           }}
-        >
+>
           <Typography
             component="h1"
             sx={{
@@ -114,9 +114,9 @@ export const Hero = () => {
                 IA
               </Typography>
             </Typography>
-            &nbsp;é um assistente inteligente que te ajuda a tirar dúvidas sobre
-            as matérias do seu curso. É só escolher a disciplina e começar o
-            papo, simples assim.
+            &nbsp;é um assistente inteligente que te ajuda a tirar dúvidas sobre as
+            matérias do seu curso. É só escolher a disciplina e começar o papo,
+            simples assim.
           </Typography>
 
           <Button
@@ -163,7 +163,7 @@ export const Hero = () => {
             }}
           >
             <img
-              // src="/hero-background-shape.svg"
+              src="/hero-background-shape.svg"
               alt=""
               style={{ width: "100%", height: "auto" }}
             />
@@ -180,11 +180,7 @@ export const Hero = () => {
             }}
           >
             {imageItems.map((item, index) => (
-              <Fade
-                key={item.src}
-                in={currentImageIndex === index}
-                timeout={1000}
-              >
+              <Fade key={item.src} in={currentImageIndex === index} timeout={1000}>
                 <Box
                   sx={{
                     position: "relative",
@@ -238,5 +234,5 @@ export const Hero = () => {
         </Grid>
       </Grid>
     </Box>
-  );
+   );
 };

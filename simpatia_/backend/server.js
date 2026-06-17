@@ -89,7 +89,10 @@ app.use(
   "/api/corretor-questoes-descritivas",
   require("./routes/corretor-questoes-descritivas/server.js"),
 );
-
+app.use(
+  "/api/simpatico",
+  require("./routes/simpatico/chat.js")
+);
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");

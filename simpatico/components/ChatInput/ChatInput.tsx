@@ -25,7 +25,7 @@ interface IChatInputData {
   mensagem_usuario: string;
 }
 
-const API_URL = "/api/chat";
+const API_URL = "/api/simpatico/chat";
 
 export function ChatInput() {
   const userId = useRef(uuidv4());
@@ -90,13 +90,14 @@ export function ChatInput() {
         throw new Error(`A requisição falhou: ${response.status} - ${errorText}`);
       }
 
-      const data = await response.text();
+      const data = await response.json();
+      const resposta = data.resposta;
       
       // CORREÇÃO 3: Adiciona a mensagem de boas-vindas inicial.
       if (isFirstMsg) {
-          setMessages([{ role: "assistant", text: data }]);
+          setMessages([{ role: "assistant", text: resposta }]);
       } else {
-          setMessages((prev) => [...prev, { role: "assistant", text: data }]);
+          setMessages((prev) => [...prev, { role: "assistant", text: resposta }]);
       }
 
     } catch (error) {

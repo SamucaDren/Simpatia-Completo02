@@ -33,7 +33,7 @@ const MODULOS_DATA = {
       id: "a1",
     },
     {
-      titulo: "Simpático IA",
+      titulo: "Simpático",
       descricao: "Estude com IA",
       link: "/simpatico/",
       id: "a2",
@@ -45,7 +45,7 @@ const MODULOS_DATA = {
       id: "a3",
     },
     {
-      titulo: "Simpático IA",
+      titulo: "Simpático-Oratoria",
       descricao: "Estude com IA",
       link: "/simpatico/",
       id: "a4",

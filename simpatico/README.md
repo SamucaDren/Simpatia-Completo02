@@ -9,15 +9,14 @@
   [![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
   [![Material-UI](https://img.shields.io/badge/Material--UI-7.0.2-0081CB?style=for-the-badge&logo=mui)](https://mui.com/)
-  [![Google Gemini](https://img.shields.io/badge/Google_Gemini-2.0_Flash-8E75B2?style=for-the-badge&logo=google)](https://ai.google.dev/)
 </div>
 
 ---
 
 > **⚠️ ATENÇÃO: CONFIGURAÇÃO OBRIGATÓRIA**  
-> Este projeto requer uma **chave de API do Google Gemini** para funcionar.  
+> Este projeto requer uma **chave de API do Groq** para funcionar.  
 > Siga as instruções na seção [⚙ Configuração](#%EF%B8%8F-configuração) antes de executar o projeto.  
-> 🔑 [Obter chave de API gratuita aqui](https://aistudio.google.com/app/apikey)
+> 🔑 [Obter chave de API gratuita aqui]((https://console.groq.com/keys))
 
 ---
 
@@ -182,7 +181,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 - **Node.js** (versão 18 ou superior) - [Download](https://nodejs.org/)
 - **npm** (geralmente vem com Node.js) ou **yarn** ou **pnpm**
 - **Git** - [Download](https://git-scm.com/)
-- **Chave de API do Google Gemini** - [Obter aqui](https://aistudio.google.com/app/apikey)
+- **Chave de API do Groq** - [Obter aqui]((https://console.groq.com/keys))
 
 ### Verificar instalações:
 
@@ -232,7 +231,7 @@ pnpm install
 
 ### 1. Obter Chave de API do Google Gemini
 
-1. Acesse: [Google AI Studio](https://aistudio.google.com/app/apikey)
+1. Acesse: [Groq](https://console.groq.com/keys)
 2. Faça login com sua conta Google
 3. Clique em "Create API Key"
 4. Copie a chave gerada
@@ -254,13 +253,13 @@ touch .env.local
 Abra o arquivo `.env.local` que você acabou de criar e adicione:
 
 ```env
-GEMINI_API_KEY=sua_chave_api_aqui
+GROQ_API_KEY=sua_chave_api_aqui
 ```
 
 **Substitua `sua_chave_api_aqui` pela sua chave real do Google Gemini:**
 
 ```env
-GEMINI_API_KEY=AIzaSyC-sua_chave_real_aqui
+GROQ_API_KEY=AIzaSyC-sua_chave_real_aqui
 ```
 
 **⚠️ ATENÇÃO:** 
@@ -371,8 +370,8 @@ Executa o ESLint para verificar problemas no código.
        │ HTTP Request
        ▼
 ┌─────────────────────┐
-│  Google Gemini API  │ ◄── Gera resposta com IA
-│  (2.0 Flash)        │
+│     GROQ API        │ ◄── Gera resposta com IA
+│                     │
 └──────┬──────────────┘
        │
        │ Response

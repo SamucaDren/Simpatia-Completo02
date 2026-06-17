@@ -29,8 +29,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
           minHeight: "80px",
         }}
       >
-        <Grid
-          size={12}
+        <Grid          
           sx={{
             display: "flex",
             alignItems: "center",
@@ -80,8 +79,8 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </Box>
         </Grid>
-        <Grid
-          size={12}
+
+        <Grid          
           sx={{
             display: "flex",
             gap: { xs: "16px", sm: "24px" },
@@ -92,5 +91,5 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
         </Grid>
       </Grid>
     </Box>
-  );
+   );
 };
