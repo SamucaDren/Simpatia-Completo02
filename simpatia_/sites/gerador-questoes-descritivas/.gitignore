@@ -1,9 +1,0 @@
-
-api/.env
-.env.local
-.env.development
-.env.production
-
-node_modules/
-debug.log
-Documents/

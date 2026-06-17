@@ -1,82 +1,57 @@
 import { useRef } from "react";
 
 export default function UploadImagem({
-    setPergunta,
-    setRespostaAluno,
-    setResultado
+  setPergunta,
+  setRespostaAluno,
+  setResultado,
 }) {
+  const inputRef = useRef();
 
-    const inputRef = useRef();
+  async function enviarImgParaAnalise(file) {
+    const formData = new FormData();
+    formData.append("imagem", file);
 
-    async function enviarImgParaAnalise(file) {
+    setResultado("Lendo imagem, por favor aguarde...");
 
-        const formData = new FormData();
-        formData.append("imagem", file);
+    try {
+      const response = await fetch("/analisar-imagem", {
+        method: "POST",
+        body: formData,
+      });
 
-        setResultado("Lendo imagem, por favor aguarde...");
+      if (!response.ok) {
+        throw new Error("Erro no servidor");
+      }
 
-        try {
+      const data = await response.json();
 
-            const response = await fetch(
-                "http://localhost:3000/analisar-imagem",
-                {
-                    method: "POST",
-                    body: formData,
-                }
-            );
+      setPergunta(data.pergunta || "Não foi possível extrair a pergunta.");
 
-            if (!response.ok) {
-                throw new Error("Erro no servidor");
-            }
+      setRespostaAluno(data.resposta || "Não foi possível extrair a resposta.");
 
-            const data = await response.json();
+      setResultado("Texto extraído com sucesso!");
+    } catch (error) {
+      console.error(error);
 
-            setPergunta(
-                data.pergunta ||
-                "Não foi possível extrair a pergunta."
-            );
-
-            setRespostaAluno(
-                data.resposta ||
-                "Não foi possível extrair a resposta."
-            );
-
-            setResultado("Texto extraído com sucesso!");
-
-        } catch (error) {
-
-            console.error(error);
-
-            setResultado("Erro ao ler imagem.");
-        }
+      setResultado("Erro ao ler imagem.");
     }
+  }
 
-    function handleFileChange(event) {
+  function handleFileChange(event) {
+    const file = event.target.files[0];
 
-        const file = event.target.files[0];
-
-        if (file) {
-            enviarImgParaAnalise(file);
-        }
+    if (file) {
+      enviarImgParaAnalise(file);
     }
+  }
 
-    return (
-        <div className="upload-container">
+  return (
+    <div className="upload-container">
+      <button className="upload-btn" onClick={() => inputRef.current.click()}>
+        Enviar Imagem
+      </button>
 
-            <button
-                className="upload-btn"
-                onClick={() => inputRef.current.click()}
-            >
-                Enviar Imagem
-            </button>
-
-            <input
-                type="file"
-                ref={inputRef}
-                hidden
-                onChange={handleFileChange}
-            />
-
-        </div>
-    );
+      <input type="file" ref={inputRef} hidden onChange={handleFileChange} />
+    </div>
+  );
 }

@@ -63,9 +63,7 @@ e coloque referências bibliográficas.
     try {
       setResultado("Carregando...");
 
-      const baseUrl =
-        import.meta.env.VITE_API_URL ||
-        "http://localhost:3000/api/corretor-questoes-descritivas";
+      const baseUrl = "/api/corretor-questoes-descritivas";
 
       const response = await fetch(`${baseUrl}/corrigir`, {
         method: "POST",

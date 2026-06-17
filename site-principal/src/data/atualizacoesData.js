@@ -357,7 +357,7 @@ O resultado entregue contempla um conjunto de agentes de IA especializados em di
       "ajuda inteligência artificial, tutor virtual com IA, agente de inteligência artificial, assistente educacional, aprendizagem ativa, IA para estudantes, inteligência artificial para educação, chat educacional, agentes especializados, Gemini AI, tutor inteligente, ensino personalizado, apoio ao estudante, resolução de dúvidas, aprendizado guiado, pensamento crítico, plataforma educacional, tecnologia educacional, edtech, projeto Simpatia",
   },
   {
-    titulo: "Simpático IA , Oratória",
+    titulo: "Simpático IA - Oratória",
     data: "NOVEMBRO DE 2025",
     descricao:
       "Uma aplicação Web para treinar argumentação através de debates com IA",
