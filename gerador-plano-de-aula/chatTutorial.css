@@ -23,8 +23,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.2s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
 }
 
 #tutorial-fab:hover {
@@ -33,7 +34,7 @@
 }
 
 #tutorial-fab.is-open {
-  transform: rotate(90deg) scale(1.0);
+  transform: rotate(90deg) scale(1);
 }
 
 #tutorial-fab svg {
@@ -44,13 +45,13 @@
 
 /* Tooltip ao lado do botão */
 #tutorial-fab::before {
-  content: 'Precisa de ajuda?';
+  content: "Precisa de ajuda?";
   position: absolute;
   right: calc(100% + 12px);
   white-space: nowrap;
   background: #0c0c12;
   color: #fefeff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;
   padding: 6px 12px;
@@ -58,7 +59,9 @@
   pointer-events: none;
   opacity: 0;
   transform: translateX(6px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 #tutorial-fab:hover::before {
@@ -72,8 +75,14 @@
 
 /* Pulso de atenção (aparece uma vez ao carregar) */
 @keyframes pulse-ring {
-  0%   { transform: scale(1);    opacity: 0.6; }
-  100% { transform: scale(1.75); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
 }
 
 #tutorial-fab-pulse {
@@ -103,8 +112,9 @@
 
   background: #fefeff;
   border: 1px solid #e4e4f2;
-  box-shadow: 0 8px 40px rgba(12, 12, 18, 0.14),
-              0 2px 8px rgba(12, 12, 18, 0.08);
+  box-shadow:
+    0 8px 40px rgba(12, 12, 18, 0.14),
+    0 2px 8px rgba(12, 12, 18, 0.08);
 
   display: flex;
   flex-direction: column;
@@ -113,8 +123,9 @@
   opacity: 0;
   transform: translateY(16px) scale(0.97);
   pointer-events: none;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
+  transition:
+    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
   transform-origin: bottom right;
 }
 
@@ -157,7 +168,7 @@
 }
 
 #tutorial-header-name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #fefeff;
@@ -166,9 +177,9 @@
 }
 
 #tutorial-header-status {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 11px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   display: flex;
   align-items: center;
   gap: 5px;
@@ -194,8 +205,12 @@
   background: #f8f8fc;
 }
 
-#tutorial-messages::-webkit-scrollbar { width: 4px; }
-#tutorial-messages::-webkit-scrollbar-track { background: transparent; }
+#tutorial-messages::-webkit-scrollbar {
+  width: 4px;
+}
+#tutorial-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
 #tutorial-messages::-webkit-scrollbar-thumb {
   background: #d1d1e4;
   border-radius: 4px;
@@ -206,7 +221,7 @@
   max-width: 88%;
   padding: 10px 14px;
   border-radius: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13.5px;
   line-height: 1.55;
   word-break: break-word;
@@ -218,7 +233,7 @@
   border: 1px solid #e4e4f2;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tut-msg.user {
@@ -271,12 +286,20 @@
   border-radius: 14px;
   border-bottom-left-radius: 4px;
   align-self: flex-start;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 @keyframes tut-bounce {
-  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-  40%           { transform: translateY(-5px); opacity: 1; }
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
 }
 
 .tut-dot {
@@ -286,8 +309,12 @@
   background: #370199;
   animation: tut-bounce 1.2s ease-in-out infinite;
 }
-.tut-dot:nth-child(2) { animation-delay: 0.15s; }
-.tut-dot:nth-child(3) { animation-delay: 0.30s; }
+.tut-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.tut-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
 
 /* Chips de sugestão rápida — dentro da área de mensagens */
 #tutorial-chips {
@@ -298,7 +325,7 @@
 }
 
 .tut-chip {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 11.5px;
   font-weight: 500;
   padding: 5px 11px;
@@ -333,12 +360,14 @@
   border: 1.5px solid #e4e4f2;
   border-radius: 22px;
   padding: 9px 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13.5px;
   color: #0c0c12;
   background: #f8f8fc;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   resize: none;
 }
 
@@ -348,7 +377,9 @@
   background: #fefeff;
 }
 
-#tutorial-input::placeholder { color: #9998b8; }
+#tutorial-input::placeholder {
+  color: #9998b8;
+}
 
 #tutorial-send {
   width: 38px;
@@ -362,7 +393,9 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 #tutorial-send:hover {
@@ -396,5 +429,65 @@
   #tutorial-fab-pulse {
     right: 16px;
     bottom: 16px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVIDADE DO CHAT TUTORIAL (MÓVEL)
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* Move o botão flutuante um pouco mais para o canto */
+  #tutorial-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+
+  #tutorial-fab-pulse {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Esconde o tooltip de texto ("Precisa de ajuda?") para não poluir o mobile */
+  #tutorial-fab::before {
+    display: none !important;
+  }
+
+  /* Transforma o painel de tutorial em quase tela cheia */
+  #tutorial-panel {
+    bottom: 76px;
+    right: 16px;
+    left: 16px; /* Define margem na esquerda para expandir responsivamente */
+    width: auto; /* Cancela a largura fixa de 360px */
+    height: calc(100vh - 100px); /* Ocupa a maior parte da altura disponível */
+    max-height: 500px;
+    border-radius: 12px;
+  }
+
+  /* Melhora o padding interno das mensagens no mobile */
+  #tutorial-messages {
+    padding: 12px;
+  }
+
+  .tut-msg {
+    max-width: 92%;
+    font-size: 13px;
+  }
+
+  /* Ajusta os chips de perguntas rápidas para rolagem horizontal se necessário */
+  #tutorial-chips-container {
+    padding: 8px;
+    gap: 6px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+  }
+
+  .tut-chip {
+    flex-shrink: 0;
   }
 }
