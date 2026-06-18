@@ -90,17 +90,17 @@ app.use(
   require("./routes/corretor-questoes-descritivas/server.js"),
 );
 
-//SIMPATICO 
-app.use(
-  "/api/simpatico",
-  require("./routes/simpatico/chat.js")
-);
+//SIMPATICO
+app.use("/api/simpatico", require("./routes/simpatico/chat.js"));
 
 //ORATORIA
 app.use("/api/oratoria/context", require("./routes/oratoria/context"));
 app.use("/api/oratoria/debate", require("./routes/oratoria/debate"));
 app.use("/api/oratoria/feedback", require("./routes/oratoria/feedback"));
 app.use("/api/oratoria/system-chat", require("./routes/oratoria/system-chat"));
+
+// AJUDA IA
+app.use("/api/ajuda-ai", require("./routes/ajuda-ai"));
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
