@@ -90,27 +90,48 @@ export default function StudyPlanGenerator() {
   };
 
   const generateStudyPlanWithAI = async () => {
-    const response = await fetch("/api/gerador-plano-estudo/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        discipline,
-        knowledgeLevel,
-        dailyHours: parseInt(dailyHours),
-        studyGoal,
-        hasDeadline,
-        deadline,
-      }),
-    });
+    const daysAvailable = calculateDaysAvailable();
+    const totalHoursAvailable = daysAvailable * parseInt(dailyHours);
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || "Erro ao gerar plano");
+    try {
+      const response = await fetch(
+        "/api/gerador-plano-estudo/generate-study-plan",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            discipline,
+            dailyHours: parseInt(dailyHours),
+            knowledgeLevel,
+            studyGoal,
+            hasDeadline,
+            deadline,
+            daysAvailable,
+            totalHoursAvailable,
+          }),
+        },
+      );
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok)
+        throw new Error(data.error || `Erro na API (${response.status})`);
+      return data;
+    } catch (error) {
+      console.error("Erro detalhado:", error);
+      if (error.message.includes("GROQ_API_KEY"))
+        throw new Error(
+          "Configure a chave GROQ_API_KEY no ambiente do servidor",
+        );
+      if (error.message.includes("401") || error.message.includes("inválida"))
+        throw new Error("Chave de API inválida. Verifique GROQ_API_KEY");
+      if (error.message.includes("429") || error.message.includes("Limite"))
+        throw new Error(
+          "Limite de requisições atingido. Aguarde alguns minutos",
+        );
+      if (error.message.includes("JSON"))
+        throw new Error("Erro ao processar resposta da IA. Tente novamente");
+      throw new Error(`Falha na geração: ${error.message}`);
     }
-
-    return await response.json();
   };
 
   const generateStudyPlan = async () => {
@@ -217,7 +238,7 @@ export default function StudyPlanGenerator() {
       // Função para remover emojis e caracteres especiais
       const cleanText = (text) => {
         return text
-          .replace(/[^\x00-\x7F]/g, "") // Remove caracteres não-ASCII
+          .normalize("NFC")
           .replace(/\s+/g, " ") // Remove espaços múltiplos
           .trim();
       };
@@ -614,7 +635,7 @@ export default function StudyPlanGenerator() {
             ) : (
               <>
                 <TrendingUp className="w-5 h-5 mr-2" />
-                Gerar Plano Realista
+                Gerar Plano de Estudo
               </>
             )}
           </button>
@@ -862,7 +883,9 @@ export default function StudyPlanGenerator() {
                                   {period}:
                                 </div>
                                 <div className="text-gray-700 text-sm mt-1">
-                                  {task}
+                                  <div>⏰ {task.hora}</div>
+
+                                  <div>📚 {task.atividade}</div>
                                 </div>
                                 {studyPlan.availableDays <= 3 && (
                                   <div className="text-xs text-red-500 mt-1 font-medium">

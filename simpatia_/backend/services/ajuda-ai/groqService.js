@@ -162,42 +162,36 @@ class GrokService {
    * nativo de TTS da xAI (POST /v1/tts) em vez do generateContent do Gemini.
    * Vozes disponíveis hoje na xAI: eve, ara, rex, sal, leo.
    */
-  async generateSpeech(
-    text,
-    voiceId = DEFAULT_VOICE,
-    language = DEFAULT_LANGUAGE,
-  ) {
-    try {
-      const response = await fetch(TTS_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${this.apiKey}`,
-        },
-        body: JSON.stringify({
-          text,
-          voice_id: voiceId,
-          language,
-        }),
-      });
+  // async generateSpeech(text, voiceId = DEFAULT_VOICE, language = DEFAULT_LANGUAGE) {
+  //   try {
+  //     const response = await fetch(TTS_URL, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${this.apiKey}`,
+  //       },
+  //       body: JSON.stringify({
+  //         text,
+  //         voice_id: voiceId,
+  //         language,
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const errBody = await response.text();
-        throw new Error(
-          `Erro HTTP ${response.status} ao gerar áudio: ${errBody}`,
-        );
-      }
+  //     if (!response.ok) {
+  //       const errBody = await response.text();
+  //       throw new Error(`Erro HTTP ${response.status} ao gerar áudio: ${errBody}`);
+  //     }
 
-      const arrayBuffer = await response.arrayBuffer();
-      const data = Buffer.from(arrayBuffer).toString("base64");
-      const mimeType = response.headers.get("content-type") || "audio/mpeg";
+  //     const arrayBuffer = await response.arrayBuffer();
+  //     const data = Buffer.from(arrayBuffer).toString('base64');
+  //     const mimeType = response.headers.get('content-type') || 'audio/mpeg';
 
-      return { data, mimeType };
-    } catch (err) {
-      console.error("Erro ao gerar speech:", err.message);
-      throw err;
-    }
-  }
+  //     return { data, mimeType };
+  //   } catch (err) {
+  //     console.error('Erro ao gerar speech:', err.message);
+  //     throw err;
+  //   }
+  // }
 
   async generateSpeech() {
     throw new Error("TTS não disponível na configuração atual.");

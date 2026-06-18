@@ -6,6 +6,7 @@ import ModulesSection from "./components/ModulesSection";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import StudyPlanGenerator from "./components/StudyPlanGenerator";
+import Chatbot from "./components/Chatbot";
 
 export default function App() {
   return (
@@ -28,6 +29,8 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        {/* Agente de suporte - disponível em todas as páginas */}
+        <Chatbot />
       </div>
     </Router>
   );

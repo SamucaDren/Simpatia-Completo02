@@ -1,5 +1,5 @@
-import { readJsonBody, sendError } from './_utils.js';
-import { createGroqChatCompletion, getGroqModel } from './_groq.js';
+const { readJsonBody, sendError } = require('./utils');
+const { createGroqChatCompletion, getGroqModel } = require('./groq');
 
 function getPlanningRules(daysAvailable) {
   if (daysAvailable <= 1) return { maxModules: 1, intensity: 'crítico', durationType: '1 dia', successProbability: 'baixa' };
@@ -9,7 +9,7 @@ function getPlanningRules(daysAvailable) {
   return { maxModules: 5, intensity: 'leve', durationType: `${Math.ceil(daysAvailable / 7)} semanas`, successProbability: 'muito alta' };
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   if (req.method !== 'POST') {
     return sendError(res, 405, 'Método não permitido. Use POST.');
   }
@@ -92,3 +92,5 @@ ESTRUTURA EXATA:
     return sendError(res, 500, 'Erro ao gerar plano de estudo.', error.message);
   }
 }
+
+module.exports = handler;
