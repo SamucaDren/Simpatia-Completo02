@@ -2,44 +2,50 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const modulo_name = "Gerador de Plano de Estudo";
+const modulo_name = "Gerador Plano Estudo";
 const dir_projeto = "gerador-plano-estudo";
 const out_diretory = "dist";
 const build_comand = "npm run build";
 
-// raiz do projeto
 const root = path.resolve(__dirname, "..");
 
-// pasta build do projeto
 const srcBuild = path.join(root, dir_projeto, out_diretory);
 
-// pasta de destino
-const dest = path.join(root, "simpatia_", "sites", dir_projeto);
+const dest = path.join(
+  root,
+  "simpatia_",
+  "sites",
+  dir_projeto
+);
 
-// 1. Build do site
-console.log("Rodando build do site-principal...");
+console.log("Gerando build...");
+
 execSync(build_comand, {
   cwd: path.join(root, dir_projeto),
   stdio: "inherit",
 });
 
-// 2. Limpa pasta de destino
 if (fs.existsSync(dest)) {
-  console.log("Apagando pasta antiga...");
-  fs.rmSync(dest, { recursive: true, force: true });
+  fs.rmSync(dest, {
+    recursive: true,
+    force: true,
+  });
 }
 
-// 3. Cria pasta de destino
-fs.mkdirSync(dest, { recursive: true });
+fs.mkdirSync(dest, {
+  recursive: true,
+});
 
-// 4. Copia todos os arquivos da build
 function copyFolderSync(src, dest) {
   fs.readdirSync(src).forEach((file) => {
     const srcPath = path.join(src, file);
     const destPath = path.join(dest, file);
 
     if (fs.lstatSync(srcPath).isDirectory()) {
-      fs.mkdirSync(destPath, { recursive: true });
+      fs.mkdirSync(destPath, {
+        recursive: true,
+      });
+
       copyFolderSync(srcPath, destPath);
     } else {
       fs.copyFileSync(srcPath, destPath);
@@ -49,6 +55,4 @@ function copyFolderSync(src, dest) {
 
 copyFolderSync(srcBuild, dest);
 
-console.log(
-  `✅ Build do ${modulo_name} copiada com sucesso para simpatia_/sites/${dir_projeto}!`,
-);
+console.log("Build copiada com sucesso!");

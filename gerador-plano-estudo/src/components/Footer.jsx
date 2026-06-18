@@ -11,25 +11,7 @@ export default function Footer() {
           <p className="text-sm">A nova forma de aprender com o poder da IA.</p>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-2">Links</h4>
-          <ul className="space-y-1 text-sm">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Módulos</a>
-            </li>
-            <li>
-              <a href="#">FAQ</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-2">Contato</h4>
-          <p className="text-sm">email@exemplo.com</p>
-        </div>
+        
       </div>
 
       <p className="text-center text-xs mt-6 text-gray-400">
