@@ -62,7 +62,7 @@ function Descubra() {
           professores e tornar o aprendizado dos alunos mais envolvente.
         </p>
       </div>
-      <div className={styles.mudavel_lateral}>
+      <div id="modulos" className={styles.mudavel_lateral}>
         <div className={styles.botoes_flex}>
           <div
             className={`${styles.barraSelectModules} ${
