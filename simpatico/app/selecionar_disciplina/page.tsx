@@ -1,16 +1,23 @@
 import { DisciplineForm } from "@/components/DisciplineForm/DisciplineForm";
 import { Header } from "@/components/Header/Header";
-import { Avatar, Link } from "@mui/material";
+import { Avatar, Link as MuiLink } from "@mui/material";
+import Link from "next/link";
 export default function SelecionarDisciplina() {
   return (
     <>
       <Header>
-        <Link href="/" color="primary.main" underline="none">
+        <MuiLink
+          component={Link}
+          href="/"
+          color="primary.main"
+          underline="none"
+          data-tour-id="header-voltar"
+        >
           Voltar
-        </Link>
-        <Link href="#">
-          <Avatar sx={{ bgcolor: "primary.main" }} />
-        </Link>
+        </MuiLink>
+        <MuiLink href="#">
+          <Avatar sx={{ bgcolor: "primary.main" }} data-tour-id="header-avatar" />
+        </MuiLink>
       </Header>
       <DisciplineForm />
     </>

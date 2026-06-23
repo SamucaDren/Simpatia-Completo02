@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { guardAssistantResponse } from "@/lib/chatResponseGuard";
 
-// USANDO O ENDPOINT QUE VOCÊ DEFINIU.
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
+const DEFAULT_MODEL = "llama-3.1-8b-instant";
 
 interface IChatRequest {
   curso: string;
@@ -11,98 +12,103 @@ interface IChatRequest {
   id: string;
 }
 
-export async function POST(request: Request ) {
-	try {
-		const { curso, materia, mensagem_usuario, nome }: IChatRequest = await request.json();
+type ChatMessage = {
+  role: "system" | "user" | "assistant";
+  content: string;
+};
 
-		if (!curso || !materia || !mensagem_usuario || !nome) {
-			console.error("Missing required fields:", { curso, materia, mensagem_usuario, nome });
-			return NextResponse.json({ error: "Campos obrigatórios ausentes na requisição" }, { status: 400 });
-		}
+export async function POST(request: Request) {
+  try {
+    const { curso, materia, mensagem_usuario, nome, id }: IChatRequest =
+      await request.json();
 
-		let prompt;
+    if (!curso || !materia || !mensagem_usuario || !nome) {
+      console.error("Missing required fields:", {
+        curso,
+        materia,
+        mensagem_usuario,
+        nome,
+      });
+      return NextResponse.json(
+        { error: "Campos obrigatorios ausentes na requisicao" },
+        { status: 400 },
+      );
+    }
 
-		if (mensagem_usuario === "First message") {
-			prompt = `Você é um tutor de IA chamado 'Simpático', especialista em ${materia}.
-			Sua tarefa é ajudar o aluno ${nome} na matéria de ${materia} do curso de ${curso}.
-			Seja amigável, didático e incentive o aprendizado.
-			Comece a conversa se apresentando de forma breve e perguntando ao aluno qual é sua primeira dúvida sobre ${materia}.
-			Responda em Markdown.`;
-		} else {
-			prompt = `Você é um tutor de IA chamado 'Simpático', especialista em ${materia}.
-			O aluno ${nome} está estudando ${materia} no curso de ${curso}.
-			A dúvida/mensagem do aluno é: "${mensagem_usuario}"
+    const isFirstMessage = mensagem_usuario === "First message";
 
-			Responda à dúvida do aluno de forma clara, didática e amigável.
-			Use exemplos quando apropriado e incentive o aluno a fazer mais perguntas.
-			Mantenha a resposta concisa e focada na pergunta.
-			Responda em Markdown.`;
-		}
+    const systemPrompt = `Voce e um tutor de IA chamado 'Simpatico', especialista em ${materia}.
+O aluno ${nome} estuda ${materia} no curso de ${curso}.
+Seja amigavel, didatico e incentive o aprendizado.
+    Responda sempre em Markdown.
+    Nunca forneca detalhes tecnicos de implementacao (API, endpoint, payload, variavel de ambiente, chave ou token).`;
 
-		if (!process.env.GEMINI_API_KEY) {
-			console.error("GEMINI_API_KEY is not defined");
-			return NextResponse.json({ error: "Configuração da API não encontrada" }, { status: 500 });
-		}
+    const userPrompt = isFirstMessage
+      ? `Apresente-se de forma breve e pergunte qual e a primeira duvida sobre ${materia}.`
+      : `A duvida/mensagem do aluno e: "${mensagem_usuario}".
+Responda de forma clara e objetiva. Use exemplos quando apropriado e mantenha o foco na pergunta.`;
 
-		const apiUrl = `${GEMINI_API_URL}?key=${process.env.GEMINI_API_KEY}`;
+    if (!process.env.GROQ_API_KEY) {
+      console.error("GROQ_API_KEY is not defined");
+      return NextResponse.json(
+        { error: "Configuracao da API nao encontrada" },
+        { status: 500 },
+      );
+    }
 
-		const response = await fetch(apiUrl, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				contents: [
-					{
-						parts: [
-							{
-								text: prompt,
-							},
-						],
-					},
-				],
-				generationConfig: {
-					temperature: 0.7,
-					topK: 40,
-					topP: 0.95,
-					maxOutputTokens: 400,
-				},
-			}),
-		});
+    const messages: ChatMessage[] = [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userPrompt },
+    ];
 
-		if (!response.ok) {
-			const errorData = await response.json().catch(() => null);
-			console.error("Gemini API error:", {
-				status: response.status,
-				statusText: response.statusText,
-				error: errorData,
-				url: apiUrl,
-			});
-			throw new Error(`Erro na API Gemini: ${response.status} ${response.statusText}`);
-		}
+    const response = await fetch(GROQ_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: process.env.GROQ_MODEL ?? DEFAULT_MODEL,
+        messages,
+        temperature: 0.7,
+        top_p: 0.95,
+        max_completion_tokens: 400,
+        user: id ?? undefined,
+      }),
+    });
 
-		const data = await response.json();
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      console.error("Groq API error:", {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorData,
+      });
+      throw new Error(`Erro na API Groq: ${response.status} ${response.statusText}`);
+    }
 
-		if (!data.candidates?.[0]?.content?.parts?.[0]?.text) {
-			console.error("Invalid response format:", data);
-			throw new Error("Formato de resposta inválido da API");
-		}
+    const data = await response.json();
+    const responseText = data?.choices?.[0]?.message?.content;
 
-		const responseText = data.candidates[0].content.parts[0].text;
+    if (!responseText) {
+      console.error("Invalid response format:", data);
+      throw new Error("Formato de resposta invalido da API");
+    }
 
-		return new Response(responseText, {
-			status: 200,
-			headers: { 'Content-Type': 'text/plain' },
-		});
+    const safeResponseText = guardAssistantResponse(responseText);
 
-	} catch (error) {
-		console.error("Error in chat route:", error);
-		return NextResponse.json(
-			{
-				error: "Erro ao processar a mensagem",
-				details: error instanceof Error ? error.message : "Erro desconhecido",
-			},
-			{ status: 500 }
-		);
-	}
+    return new Response(safeResponseText, {
+      status: 200,
+      headers: { "Content-Type": "text/plain" },
+    });
+  } catch (error) {
+    console.error("Error in chat route:", error);
+    return NextResponse.json(
+      {
+        error: "Erro ao processar a mensagem",
+        details: error instanceof Error ? error.message : "Erro desconhecido",
+      },
+      { status: 500 },
+    );
+  }
 }

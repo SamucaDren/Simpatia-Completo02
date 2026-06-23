@@ -160,7 +160,7 @@ export const DisciplineForm = () => {
 
           <FormControl fullWidth>
             <Grid container direction="column" spacing={3}>
-              <Grid>
+              <Grid size={12} data-tour-id="select-curso">
                 <Autocomplete
                   fullWidth
                   disablePortal
@@ -187,7 +187,7 @@ export const DisciplineForm = () => {
                 />
               </Grid>
 
-              <Grid>
+              <Grid data-tour-id="select-disciplina">
                 <Autocomplete
                   fullWidth
                   disablePortal
@@ -228,6 +228,7 @@ export const DisciplineForm = () => {
                   onClick={() => {
                     router.push("/chat_simpatico");
                   }}
+                  data-tour-id="start-chat"
                   sx={{
                     py: "14px",
                     fontWeight: 600,

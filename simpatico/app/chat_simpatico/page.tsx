@@ -1,23 +1,24 @@
 import { ChatInput } from "@/components/ChatInput/ChatInput";
 import { Chat } from "@/components/Chats/Chat";
 import { Header } from "@/components/Header/Header";
-import { Avatar, Button, Link } from "@mui/material";
+import { Avatar, Button, Link as MuiLink } from "@mui/material";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
       <Header>
-        <Link
+        <Button
+          component={Link}
           href="/selecionar_disciplina"
-          color="primary.main"
-          underline="none"
+          variant="outlined"
+          sx={{ borderRadius: 999 }}
+          data-tour-id="header-alterar"
         >
-          <Button variant="outlined" sx={{ borderRadius: 999 }}>
-            Alterar Disciplina
-          </Button>
-        </Link>
-        <Link href="#">
-          <Avatar sx={{ bgcolor: "primary.main" }} />
-        </Link>
+          Alterar Disciplina
+        </Button>
+        <MuiLink href="#">
+          <Avatar sx={{ bgcolor: "primary.main" }} data-tour-id="header-avatar" />
+        </MuiLink>
       </Header>
       <Chat />
       <ChatInput />

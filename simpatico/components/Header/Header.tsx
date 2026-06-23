@@ -1,6 +1,7 @@
 "use client";
 
 import { Grid, Box, Divider } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 export const Header = ({ children }: { children: React.ReactNode }) => {
@@ -36,7 +37,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
             gap: "24px",
           }}
         >
-          <a href="/" aria-label="Página Inicial do Simpatico IA">
+          <Link href="/" aria-label="Pagina Inicial do Simpatico IA" data-tour-id="header-logo" style={{ textDecoration: "none" }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box
                 component="span"
@@ -60,7 +61,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
                 }}
               />
             </Box>
-          </a>
+          </Link>
           <Divider
             orientation="vertical"
             flexItem
@@ -93,3 +94,6 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
     </Box>
    );
 };
+
+
+

@@ -41,7 +41,7 @@ export const Hero = ( ) => {
         }}
       >
         <Grid
-          size={{ xs: 12, md: 6 }}
+          size={{xs:12, md:6}}          
           sx={{
             zIndex: 2,
             textAlign: { xs: "center", md: "left" },
@@ -49,7 +49,7 @@ export const Hero = ( ) => {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
           }}
->
+        >
           <Typography
             component="h1"
             sx={{
@@ -136,13 +136,14 @@ export const Hero = ( ) => {
             onClick={() => {
               router.push("/selecionar_disciplina");
             }}
+            data-tour-id="hero-comecar"
           >
             Começar
           </Button>
         </Grid>
 
         <Grid
-          size={{ xs: 12, md: 6 }}
+          size={{xs:12, md:6}}          
           sx={{
             position: "relative",
             display: { xs: "none", md: "flex" },
@@ -236,3 +237,5 @@ export const Hero = ( ) => {
     </Box>
    );
 };
+
+

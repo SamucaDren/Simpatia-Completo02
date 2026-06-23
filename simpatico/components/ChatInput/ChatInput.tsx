@@ -90,14 +90,13 @@ export function ChatInput() {
         throw new Error(`A requisição falhou: ${response.status} - ${errorText}`);
       }
 
-      const data = await response.json();
-      const resposta = data.resposta;
+      const data = await response.text();
       
       // CORREÇÃO 3: Adiciona a mensagem de boas-vindas inicial.
       if (isFirstMsg) {
-          setMessages([{ role: "assistant", text: resposta }]);
+          setMessages([{ role: "assistant", text: data }]);
       } else {
-          setMessages((prev) => [...prev, { role: "assistant", text: resposta }]);
+          setMessages((prev) => [...prev, { role: "assistant", text: data }]);
       }
 
     } catch (error) {
@@ -223,49 +222,52 @@ export function ChatInput() {
         >
           <form onSubmit={handleSubmit}>
             <FormControl fullWidth>
-              <TextField
-                fullWidth
-                variant="outlined"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Pergunte ao Simpatico..."
-                disabled={isLoading}
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    borderRadius: "12px",
-                    backgroundColor: "neutral.100",
-                    "& fieldset": {
-                      borderColor: "neutral.200",
+              <Box data-tour-id="chat-input">
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Pergunte ao Simpatico..."
+                  disabled={isLoading}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      backgroundColor: "neutral.100",
+                      "& fieldset": {
+                        borderColor: "neutral.200",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "primary.main",
+                      },
                     },
-                    "&:hover fieldset": {
-                      borderColor: "primary.main",
-                    },
-                  },
-                }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        type="submit"
-                        color="primary"
-                        disabled={!input.trim() || isLoading}
-                        sx={{
-                          backgroundColor: "primary.main",
-                          color: "white",
-                          "&:hover": {
-                            backgroundColor: "primary.dark",
-                          },
-                          "&.Mui-disabled": {
-                            backgroundColor: "neutral.200",
-                          },
-                        }}
-                      >
-                        <SendIcon />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          type="submit"
+                          color="primary"
+                          disabled={!input.trim() || isLoading}
+                          data-tour-id="chat-send"
+                          sx={{
+                            backgroundColor: "primary.main",
+                            color: "white",
+                            "&:hover": {
+                              backgroundColor: "primary.dark",
+                            },
+                            "&.Mui-disabled": {
+                              backgroundColor: "neutral.200",
+                            },
+                          }}
+                        >
+                          <SendIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
             </FormControl>
           </form>
         </Box>

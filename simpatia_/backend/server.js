@@ -90,6 +90,7 @@ app.use(
 
 //SIMPATICO
 app.use("/api/simpatico", require("./routes/simpatico/chat.js"));
+app.use("/api/simpatico/system-chat", require("./routes/simpatico/system-chat.js"));
 
 //ORATORIA
 app.use("/api/oratoria/context", require("./routes/oratoria/context"));

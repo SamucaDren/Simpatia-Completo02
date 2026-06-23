@@ -1,16 +1,16 @@
 import ThemeRegistry from "@/components/ThemeResistry/ThemeResistry";
-import "./globals.css";
+import "./global.css";
 import { Inter } from "next/font/google";
 import { CourseProvider } from "@/lib/context/useCourse";
+import { FloatingChat } from "@/components/FloatingChat/FloatingChat";
+import { TutorialOverlay } from "@/components/Tutorial/TutorialOverlay";
+import { TutorialTrigger } from "@/components/Tutorial/TutorialTrigger";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "SIMPATICO IA",
-  description: "Plataforma de Tutoria Inteligente para Estudantes Universitários",
-  icons: {
-    icon: "https://scjmnsuidsjcnerccxhe.supabase.co/storage/v1/object/public/images/public/2hwlg68xd6b.png",
-  },
+  title: "Simpatico",
+  description: "Modulo do simpatia",
 };
 
 export default function RootLayout({
@@ -19,12 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeRegistry>
-          <CourseProvider>{children}</CourseProvider>
+          <CourseProvider>
+            {children}
+            <FloatingChat />
+            <TutorialOverlay />
+            <TutorialTrigger />
+          </CourseProvider>
         </ThemeRegistry>
       </body>
     </html>
   );
 }
+
+
